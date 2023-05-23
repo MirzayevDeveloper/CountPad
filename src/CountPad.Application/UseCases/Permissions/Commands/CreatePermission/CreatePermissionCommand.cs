@@ -1,8 +1,13 @@
-﻿using MediatR;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using AutoMapper;
+using CountPad.Application.Common.Interfaces;
+using CountPad.Domain.Entities.Roles;
+using MediatR;
 
 namespace CountPad.Application.UseCases.Permissions.Commands.CreatePermission
 {
-	public class CreatePermissionCommand : IRequest
+	public class CreatePermissionCommand : IRequest<int>
 	{
 		private string _permissionName;
 
@@ -10,6 +15,28 @@ namespace CountPad.Application.UseCases.Permissions.Commands.CreatePermission
 		{
 			get { return _permissionName; }
 			set { _permissionName = value.ToLower(); }
+		}
+	}
+
+	public class CreatePermissionCommandHandler : IRequestHandler<CreatePermissionCommand, int>
+	{
+		private readonly IApplicationDbContext _context;
+		private readonly IMapper _mapper;
+
+		public CreatePermissionCommandHandler(
+			IApplicationDbContext context, 
+			IMapper mapper)
+		{
+			_context = context;
+			_mapper = mapper;
+		}
+
+		public async Task<int> Handle(CreatePermissionCommand request, CancellationToken cancellationToken)
+		{
+			var permission = new Permission
+			{
+				CreatedDate
+			};
 		}
 	}
 }
