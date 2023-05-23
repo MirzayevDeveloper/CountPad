@@ -5,12 +5,12 @@
 
 using System;
 using System.Collections.Generic;
+using CountPad.Domain.Common;
 
 namespace CountPad.Domain.Entities.Roles
 {
-	public class Permission
+	public class Permission : BaseAuditableEntity
 	{
-		public Guid Id { get; set; }
 		public string PermissionName { get; set; }
 
 		public ICollection<RolePermission> RolePermissions { get; set; }

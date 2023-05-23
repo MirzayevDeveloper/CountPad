@@ -10,7 +10,7 @@ using CountPad.Domain.Entities.Solds;
 
 namespace CountPad.Domain.Entities.Orders
 {
-	public class Order : BaseEntity
+	public class Order : BaseAuditableEntity
 	{
 		public Guid PackageId { get; set; }
 		public Package Package { get; set; }

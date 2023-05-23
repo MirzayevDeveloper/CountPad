@@ -4,12 +4,12 @@
 // --------------------------------------------------------
 
 using System;
+using CountPad.Domain.Common;
 
 namespace CountPad.Domain.Entities.Products
 {
-	public class Product
+	public class Product : BaseAuditableEntity
 	{
-		public Guid Id { get; set; }
 		public string Name { get; set; }
 		public ProductCategory ProductType { get; set; }
 		public string Description { get; set; }

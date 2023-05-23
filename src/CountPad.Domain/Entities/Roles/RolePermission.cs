@@ -4,17 +4,16 @@
 // --------------------------------------------------------
 
 using System;
+using CountPad.Domain.Common;
 
 namespace CountPad.Domain.Entities.Roles
 {
-	public class RolePermission
+	public class RolePermission : BaseEntity
 	{
-		public Guid Id { get; set; }
-
 		public Guid RoleId { get; set; }
 		public Role Role { get; set; }
 
 		public Guid PermissionId { get; set; }
-		public Permission Permission { get; set; }
+		public Role Permission { get; set; }
 	}
 }
