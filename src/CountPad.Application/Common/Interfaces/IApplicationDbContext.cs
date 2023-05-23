@@ -18,7 +18,7 @@ namespace CountPad.Application.Common.Interfaces
 		DbSet<Package> Packages { get; }
 		DbSet<Product> Products { get; }
 		DbSet<Role> Roles { get; }
-		DbSet<Role> Permissions { get; }
+		DbSet<Permission> Permissions { get; }
 		DbSet<RolePermission> RolePermissions { get; }
 		DbSet<UserRole> UserRoles { get; }
 		DbSet<Sold> Solds { get; }

@@ -22,7 +22,7 @@ namespace CountPad.Infrastructure.Persistence
 		public DbSet<Package> Packages { get; set; }
 		public DbSet<Product> Products { get; set; }
 		public DbSet<Role> Roles { get; set; }
-		public DbSet<Role> Permissions { get; set; }
+		public DbSet<Permission> Permissions { get; set; }
 		public DbSet<RolePermission> RolePermissions { get; set; }
 		public DbSet<UserRole> UserRoles { get; set; }
 		public DbSet<Sold> Solds { get; set; }
