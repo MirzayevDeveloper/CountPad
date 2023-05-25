@@ -40,10 +40,7 @@ namespace CountPad.Application.UseCases.Permissions.Commands.UpdatePermission
 
 			await _context.SaveChangesAsync(cancellationToken);
 
-			maybePermission = await _context.Permissions
-				.FindAsync(new object[] { request.Id }, cancellationToken);
-
-			return _mapper.Map<PermissionDto>(maybePermission);
+			return _mapper.Map<PermissionDto>(request);
 		}
 
 		private static void ValidatePermissionIsNotNull(UpdatePermissionCommand request, Permission maybePermission)

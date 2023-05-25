@@ -1,5 +1,7 @@
 ﻿using System.Reflection;
+using CountPad.Application.Common.Behaviours;
 using FluentValidation;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CountPad.Application
@@ -14,6 +16,7 @@ namespace CountPad.Application
 			services.AddMediatR(config =>
 			{
 				config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+				config.AddBehavior(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
 			});
 
 			return services;
