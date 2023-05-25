@@ -19,8 +19,8 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                     Name = table.Column<string>(type: "text", nullable: true),
                     CompanyPhone = table.Column<string>(type: "text", nullable: true),
                     DelivererPhone = table.Column<string>(type: "text", nullable: true),
-                    CreatedDate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
-                    UpdateDate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false)
+                    CreatedDate = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false),
+                    UpdatedDate = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -33,8 +33,8 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     PermissionName = table.Column<string>(type: "text", nullable: true),
-                    CreatedDate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
-                    UpdateDate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false)
+                    CreatedDate = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false),
+                    UpdatedDate = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -48,8 +48,8 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: true),
                     Description = table.Column<string>(type: "text", nullable: true),
-                    CreatedDate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
-                    UpdateDate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false)
+                    CreatedDate = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false),
+                    UpdatedDate = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -62,8 +62,8 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     RoleName = table.Column<string>(type: "text", nullable: true),
-                    CreatedDate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
-                    UpdateDate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false)
+                    CreatedDate = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false),
+                    UpdatedDate = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -78,8 +78,8 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                     Name = table.Column<string>(type: "text", nullable: true),
                     Phone = table.Column<string>(type: "text", nullable: true),
                     Password = table.Column<string>(type: "text", nullable: true),
-                    CreatedDate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
-                    UpdateDate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false)
+                    CreatedDate = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false),
+                    UpdatedDate = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -94,8 +94,8 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                     Name = table.Column<string>(type: "text", nullable: true),
                     ProductCategoryId = table.Column<Guid>(type: "uuid", nullable: false),
                     Description = table.Column<string>(type: "text", nullable: true),
-                    CreatedDate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
-                    UpdateDate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false)
+                    CreatedDate = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false),
+                    UpdatedDate = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -114,7 +114,9 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     RoleId = table.Column<Guid>(type: "uuid", nullable: false),
-                    PermissionId = table.Column<Guid>(type: "uuid", nullable: false)
+                    PermissionId = table.Column<Guid>(type: "uuid", nullable: false),
+                    CreatedDate = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false),
+                    UpdatedDate = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -138,10 +140,10 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    SoldDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    SoldDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     UserId = table.Column<Guid>(type: "uuid", nullable: false),
-                    CreatedDate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
-                    UpdateDate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false)
+                    CreatedDate = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false),
+                    UpdatedDate = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -160,7 +162,9 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     UserId = table.Column<Guid>(type: "uuid", nullable: false),
-                    RoleId = table.Column<Guid>(type: "uuid", nullable: false)
+                    RoleId = table.Column<Guid>(type: "uuid", nullable: false),
+                    CreatedDate = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false),
+                    UpdatedDate = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -187,11 +191,11 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                     Count = table.Column<double>(type: "double precision", nullable: false),
                     IncomingPrice = table.Column<decimal>(type: "numeric", nullable: false),
                     SalePrice = table.Column<decimal>(type: "numeric", nullable: false),
-                    IncomingDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    IncomingDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     ProductId = table.Column<Guid>(type: "uuid", nullable: false),
                     DistributorId = table.Column<Guid>(type: "uuid", nullable: false),
-                    CreatedDate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
-                    UpdateDate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false)
+                    CreatedDate = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false),
+                    UpdatedDate = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -217,8 +221,8 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     PackageId = table.Column<Guid>(type: "uuid", nullable: false),
                     SoldId = table.Column<Guid>(type: "uuid", nullable: false),
-                    CreatedDate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
-                    UpdateDate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false)
+                    CreatedDate = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false),
+                    UpdatedDate = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false)
                 },
                 constraints: table =>
                 {

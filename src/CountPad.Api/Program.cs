@@ -2,6 +2,7 @@ using CountPad.Application;
 using CountPad.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

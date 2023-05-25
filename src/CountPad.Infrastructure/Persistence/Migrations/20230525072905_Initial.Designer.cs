@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CountPad.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230525045351_Initial")]
+    [Migration("20230525072905_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -35,7 +35,7 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTimeOffset>("CreatedDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamptz");
 
                     b.Property<string>("DelivererPhone")
                         .HasColumnType("text");
@@ -43,8 +43,8 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
-                    b.Property<DateTimeOffset>("UpdateDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateTimeOffset>("UpdatedDate")
+                        .HasColumnType("timestamptz");
 
                     b.HasKey("Id");
 
@@ -58,13 +58,13 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<DateTimeOffset>("CreatedDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamptz");
 
                     b.Property<string>("PermissionName")
                         .HasColumnType("text");
 
-                    b.Property<DateTimeOffset>("UpdateDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateTimeOffset>("UpdatedDate")
+                        .HasColumnType("timestamptz");
 
                     b.HasKey("Id");
 
@@ -81,13 +81,13 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<DateTimeOffset>("CreatedDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamptz");
 
                     b.Property<string>("RoleName")
                         .HasColumnType("text");
 
-                    b.Property<DateTimeOffset>("UpdateDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateTimeOffset>("UpdatedDate")
+                        .HasColumnType("timestamptz");
 
                     b.HasKey("Id");
 
@@ -103,11 +103,17 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<DateTimeOffset>("CreatedDate")
+                        .HasColumnType("timestamptz");
+
                     b.Property<Guid>("PermissionId")
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("RoleId")
                         .HasColumnType("uuid");
+
+                    b.Property<DateTimeOffset>("UpdatedDate")
+                        .HasColumnType("timestamptz");
 
                     b.HasKey("Id");
 
@@ -124,8 +130,14 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<DateTimeOffset>("CreatedDate")
+                        .HasColumnType("timestamptz");
+
                     b.Property<Guid>("RoleId")
                         .HasColumnType("uuid");
+
+                    b.Property<DateTimeOffset>("UpdatedDate")
+                        .HasColumnType("timestamptz");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid");
@@ -146,7 +158,7 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<DateTimeOffset>("CreatedDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamptz");
 
                     b.Property<Guid>("PackageId")
                         .HasColumnType("uuid");
@@ -154,8 +166,8 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                     b.Property<Guid>("SoldId")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTimeOffset>("UpdateDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateTimeOffset>("UpdatedDate")
+                        .HasColumnType("timestamptz");
 
                     b.HasKey("Id");
 
@@ -176,13 +188,13 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                         .HasColumnType("double precision");
 
                     b.Property<DateTimeOffset>("CreatedDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamptz");
 
                     b.Property<Guid>("DistributorId")
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("IncomingDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<decimal>("IncomingPrice")
                         .HasColumnType("numeric");
@@ -193,8 +205,8 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                     b.Property<decimal>("SalePrice")
                         .HasColumnType("numeric");
 
-                    b.Property<DateTimeOffset>("UpdateDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateTimeOffset>("UpdatedDate")
+                        .HasColumnType("timestamptz");
 
                     b.HasKey("Id");
 
@@ -212,7 +224,7 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<DateTimeOffset>("CreatedDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamptz");
 
                     b.Property<string>("Description")
                         .HasColumnType("text");
@@ -223,8 +235,8 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                     b.Property<Guid>("ProductCategoryId")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTimeOffset>("UpdateDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateTimeOffset>("UpdatedDate")
+                        .HasColumnType("timestamptz");
 
                     b.HasKey("Id");
 
@@ -240,7 +252,7 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<DateTimeOffset>("CreatedDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamptz");
 
                     b.Property<string>("Description")
                         .HasColumnType("text");
@@ -248,8 +260,8 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
-                    b.Property<DateTimeOffset>("UpdateDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateTimeOffset>("UpdatedDate")
+                        .HasColumnType("timestamptz");
 
                     b.HasKey("Id");
 
@@ -263,13 +275,13 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<DateTimeOffset>("CreatedDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamptz");
 
                     b.Property<DateTime>("SoldDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
-                    b.Property<DateTimeOffset>("UpdateDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateTimeOffset>("UpdatedDate")
+                        .HasColumnType("timestamptz");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid");
@@ -288,7 +300,7 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<DateTimeOffset>("CreatedDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamptz");
 
                     b.Property<string>("Name")
                         .HasColumnType("text");
@@ -299,8 +311,8 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                     b.Property<string>("Phone")
                         .HasColumnType("text");
 
-                    b.Property<DateTimeOffset>("UpdateDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateTimeOffset>("UpdatedDate")
+                        .HasColumnType("timestamptz");
 
                     b.HasKey("Id");
 

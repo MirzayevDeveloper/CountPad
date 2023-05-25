@@ -5,6 +5,6 @@ namespace CountPad.Infrastructure.Services
 {
 	public class DateTimeService : IDateTime
 	{
-		public DateTimeOffset Now => DateTimeOffset.Now;
+		public DateTime Now => DateTime.UtcNow;
 	}
 }

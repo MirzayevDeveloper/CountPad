@@ -8,6 +8,6 @@ namespace CountPad.Application.Common.Interfaces
 {
 	public interface IDateTime
 	{
-		DateTimeOffset Now { get; }
+		DateTime Now { get; }
 	}
 }

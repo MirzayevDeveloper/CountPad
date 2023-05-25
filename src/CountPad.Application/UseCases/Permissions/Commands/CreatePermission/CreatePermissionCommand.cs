@@ -1,12 +1,16 @@
-﻿using System.Threading;
+﻿using System;
+using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using CountPad.Application.Common.Interfaces;
+using CountPad.Application.UseCases.Permissions.Models;
+using CountPad.Domain.Entities.Identities;
 using MediatR;
 
 namespace CountPad.Application.UseCases.Permissions.Commands.CreatePermission
 {
-	public class CreatePermissionCommand : IRequest<int>
+	public class CreatePermissionCommand : IRequest<PermissionDto>
 	{
 		private string _permissionName;
 
@@ -17,27 +21,39 @@ namespace CountPad.Application.UseCases.Permissions.Commands.CreatePermission
 		}
 	}
 
-	public class CreatePermissionCommandHandler : IRequestHandler<CreatePermissionCommand, int>
+	public class CreatePermissionCommandHandler : IRequestHandler<CreatePermissionCommand, PermissionDto>
 	{
 		private readonly IApplicationDbContext _context;
 		private readonly IMapper _mapper;
+		private readonly IDateTime dateTime;
 
 		public CreatePermissionCommandHandler(
 			IApplicationDbContext context,
-			IMapper mapper)
+			IMapper mapper,
+			IDateTime dateTime)
 		{
 			_context = context;
 			_mapper = mapper;
+			this.dateTime = dateTime;
 		}
 
-		public async Task<int> Handle(CreatePermissionCommand request, CancellationToken cancellationToken)
+		public async Task<PermissionDto> Handle(CreatePermissionCommand request, CancellationToken cancellationToken)
 		{
-			_context.Permissions.Add(new()
+			var a = _context.Permissions.Add(new()
 			{
 				PermissionName = request.PermissionName
-			});
+			}).Entity;
 
-			return await _context.SaveChangesAsync(cancellationToken);
+			DateTimeOffset s = dateTime.Now;
+
+			DateTime q = dateTime.Now;
+
+			await _context.SaveChangesAsync(cancellationToken);
+
+			Permission permission = _context.Permissions
+				.SingleOrDefault(p => p.PermissionName.Equals(request.PermissionName));
+
+			return _mapper.Map<PermissionDto>(permission);
 		}
 	}
 }

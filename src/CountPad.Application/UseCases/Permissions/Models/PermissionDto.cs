@@ -1,10 +1,9 @@
-﻿using System;
+﻿using CountPad.Application.Common.Models;
 
 namespace CountPad.Application.UseCases.Permissions.Models
 {
-	public class PermissionDto
+	public class PermissionDto : BaseAuditableEntityDto
 	{
-		public Guid Id { get; set; }
 		public string PermissionName { get; set; }
 	}
 }
