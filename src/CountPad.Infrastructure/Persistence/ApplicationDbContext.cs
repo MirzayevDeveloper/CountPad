@@ -38,15 +38,15 @@ namespace CountPad.Infrastructure.Persistence
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			base.OnModelCreating(modelBuilder);
-
 			modelBuilder.ApplyConfigurationsFromAssembly(
-				assembly: Assembly.GetExecutingAssembly());
+				Assembly.GetExecutingAssembly());
 
 			foreach (var entity in modelBuilder.Model.GetEntityTypes())
 			{
 				modelBuilder.Entity(entity.Name).HasKey("Id");
 			}
+
+			base.OnModelCreating(modelBuilder);
 		}
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
