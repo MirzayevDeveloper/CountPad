@@ -9,7 +9,7 @@ namespace CountPad.Application.UseCases.Permissions.Commands.CreatePermission
 			RuleFor(v => v.PermissionName)
 				.MaximumLength(50)
 				.NotEmpty()
-				.WithMessage("Permission name error occurred");
+				.WithMessage("Permission name is required.");
 		}
 	}
 }

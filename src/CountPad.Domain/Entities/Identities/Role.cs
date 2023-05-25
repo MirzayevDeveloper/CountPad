@@ -7,12 +7,13 @@ using System;
 using System.Collections.Generic;
 using CountPad.Domain.Common;
 
-namespace CountPad.Domain.Entities.Roles
+namespace CountPad.Domain.Entities.Identities
 {
-	public class Permission : BaseAuditableEntity
+	public class Role : BaseAuditableEntity
 	{
-		public string PermissionName { get; set; }
+		public string RoleName { get; set; }
 
+		public ICollection<UserRole> UserRoles { get; set; }
 		public ICollection<RolePermission> RolePermissions { get; set; }
 	}
 }

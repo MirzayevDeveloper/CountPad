@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using CountPad.Application.UseCases.Permissions.Models;
-using CountPad.Domain.Entities.Roles;
+using CountPad.Domain.Entities.Identities;
 
 namespace CountPad.Application.Common.Mapping
 {

@@ -1,4 +1,4 @@
-﻿using CountPad.Domain.Entities.Roles;
+﻿using CountPad.Domain.Entities.Identities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

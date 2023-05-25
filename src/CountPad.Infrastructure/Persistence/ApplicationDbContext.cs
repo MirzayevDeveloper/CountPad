@@ -5,17 +5,25 @@ using CountPad.Domain.Entities;
 using CountPad.Domain.Entities.Orders;
 using CountPad.Domain.Entities.Packages;
 using CountPad.Domain.Entities.Products;
-using CountPad.Domain.Entities.Roles;
+using CountPad.Domain.Entities.Identities;
 using CountPad.Domain.Entities.Solds;
 using CountPad.Domain.Entities.Users;
+using CountPad.Infrastructure.Persistence.Interceptors;
 using Microsoft.EntityFrameworkCore;
 
 namespace CountPad.Infrastructure.Persistence
 {
 	public class ApplicationDbContext : DbContext, IApplicationDbContext
 	{
-		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-			: base(options) { }
+		private readonly AuditableEntitySaveChangesInterceptor _interceptor;
+
+		public ApplicationDbContext(
+			DbContextOptions<ApplicationDbContext> options,
+			AuditableEntitySaveChangesInterceptor interceptor)
+			: base(options)
+		{
+			_interceptor = interceptor;
+		}
 
 		public DbSet<Distributor> Distributors { get; set; }
 		public DbSet<Order> Orders { get; set; }
@@ -38,14 +46,12 @@ namespace CountPad.Infrastructure.Persistence
 			foreach (var entity in modelBuilder.Model.GetEntityTypes())
 			{
 				modelBuilder.Entity(entity.Name).HasKey("Id");
-
-				modelBuilder.Entity(entity.Name).Property("Id")
-					.ValueGeneratedOnAdd();
-
-				modelBuilder.Entity(entity.Name)
-					.Property<DateTimeOffset>("CreatedDate")
-					.HasDefaultValue(DateTimeOffset.Now);
 			}
+		}
+
+		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+		{
+			optionsBuilder.AddInterceptors(_interceptor);
 		}
 	}
 }

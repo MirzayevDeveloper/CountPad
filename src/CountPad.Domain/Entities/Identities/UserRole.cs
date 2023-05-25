@@ -7,7 +7,7 @@ using System;
 using CountPad.Domain.Common;
 using CountPad.Domain.Entities.Users;
 
-namespace CountPad.Domain.Entities.Roles
+namespace CountPad.Domain.Entities.Identities
 {
 	public class UserRole : BaseEntity
 	{

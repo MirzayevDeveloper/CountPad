@@ -1,5 +1,6 @@
 ﻿using CountPad.Application.Common.Interfaces;
 using CountPad.Infrastructure.Persistence;
+using CountPad.Infrastructure.Persistence.Interceptors;
 using CountPad.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -16,8 +17,10 @@ namespace CountPad.Infrastructure
 				options.UseNpgsql(connectionString: configuration.GetConnectionString("DefaultConnection"));
 			});
 
+			services.AddScoped<AuditableEntitySaveChangesInterceptor>();
 			services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
 			services.AddTransient<IDateTime, DateTimeService>();
+			services.AddTransient<IGuidGenerator, GuidGeneratorService>();
 
 			return services;
 		}

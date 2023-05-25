@@ -6,7 +6,7 @@
 using System;
 using CountPad.Domain.Common;
 
-namespace CountPad.Domain.Entities.Roles
+namespace CountPad.Domain.Entities.Identities
 {
 	public class RolePermission : BaseEntity
 	{
