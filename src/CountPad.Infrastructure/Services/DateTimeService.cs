@@ -1,4 +1,5 @@
-﻿using CountPad.Application.Common.Interfaces;
+﻿using System;
+using CountPad.Application.Common.Interfaces;
 
 namespace CountPad.Infrastructure.Services
 {

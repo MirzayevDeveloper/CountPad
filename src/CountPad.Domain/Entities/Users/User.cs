@@ -3,7 +3,10 @@
 // Developed by CountPad Team
 // --------------------------------------------------------
 
+using System.Collections;
+using System.Collections.Generic;
 using CountPad.Domain.Common;
+using CountPad.Domain.Entities.Identities;
 
 namespace CountPad.Domain.Entities.Users
 {
@@ -12,5 +15,7 @@ namespace CountPad.Domain.Entities.Users
 		public string Name { get; set; }
 		public string Phone { get; set; }
 		public string Password { get; set; }
+
+		public ICollection<UserRole> UserRoles { get; set; }
 	}
 }

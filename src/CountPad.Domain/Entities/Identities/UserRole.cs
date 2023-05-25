@@ -11,8 +11,6 @@ namespace CountPad.Domain.Entities.Identities
 {
 	public class UserRole : BaseEntity
 	{
-        public Guid Id { get; set; }
-
         public Guid UserId { get; set; }
 		public User User { get; set; }
 
