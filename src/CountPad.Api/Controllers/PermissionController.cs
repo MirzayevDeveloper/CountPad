@@ -17,9 +17,9 @@ namespace CountPad.Api.Controllers
 		}
 
 		[HttpGet("{permissionId}")]
-		public async ValueTask<ActionResult<PermissionDto>> GetPermissionAsync([FromQuery] GetPermissionQuery query)
+		public async ValueTask<ActionResult<PermissionDto>> GetPermissionAsync(Guid permissionId)
 		{
-			return await Mediator.Send(query);
+			return await Mediator.Send(new GetPermissionQuery(permissionId));
 		}
 
 		[HttpGet]
