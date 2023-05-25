@@ -5,7 +5,7 @@ namespace CountPad.Application.UseCases.Permissions.Queries.GetPermission
 {
 	public class GetPermissionQueryValidator : AbstractValidator<GetPermissionQuery>
 	{
-		public GetPermissionQueryValidator() 
+		public GetPermissionQueryValidator()
 		{
 			RuleFor(v => v.permissionId)
 				.NotEqual(default(Guid))

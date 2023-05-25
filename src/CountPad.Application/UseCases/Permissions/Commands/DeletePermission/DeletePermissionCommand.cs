@@ -10,7 +10,7 @@ using MediatR;
 
 namespace CountPad.Application.UseCases.Permissions.Commands.DeletePermission
 {
-	public record DeletePermissionCommand(Guid permissionId): IRequest<PermissionDto>;
+	public record DeletePermissionCommand(Guid permissionId) : IRequest<PermissionDto>;
 
 	public class DeletePermissionCommandHandler : IRequestHandler<DeletePermissionCommand, PermissionDto>
 	{
@@ -30,7 +30,7 @@ namespace CountPad.Application.UseCases.Permissions.Commands.DeletePermission
 			Permission maybePermission = await _context.Permissions
 				.FindAsync(new object[] { request.permissionId }, cancellationToken);
 
-			if(maybePermission == null)
+			if (maybePermission == null)
 			{
 				throw new NotFoundException(nameof(Permission), request.permissionId);
 			}

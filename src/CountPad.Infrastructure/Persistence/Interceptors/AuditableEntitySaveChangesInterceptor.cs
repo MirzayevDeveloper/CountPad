@@ -1,7 +1,6 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using CountPad.Application.Common.Interfaces;
 using CountPad.Domain.Common;
 using Microsoft.EntityFrameworkCore;

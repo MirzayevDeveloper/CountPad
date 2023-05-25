@@ -27,7 +27,7 @@ namespace CountPad.Application.UseCases.Permissions.Queries.GetPermission
 
 		public async Task<PermissionDto> Handle(GetPermissionQuery request, CancellationToken cancellationToken)
 		{
-			Permission maybePermission = 
+			Permission maybePermission =
 				await _context.Permissions.FindAsync(request.permissionId);
 
 			ValidatePermissionIsNotNull(request, maybePermission);

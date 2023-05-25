@@ -4,7 +4,6 @@ using CountPad.Application.UseCases.Permissions.Commands.UpdatePermission;
 using CountPad.Application.UseCases.Permissions.Models;
 using CountPad.Application.UseCases.Permissions.Queries.GetPermission;
 using CountPad.Application.UseCases.Permissions.Queries.GetPermissions;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CountPad.Api.Controllers
@@ -32,7 +31,7 @@ namespace CountPad.Api.Controllers
 		[HttpPut]
 		public async ValueTask<ActionResult<PermissionDto>> PutPermissionAsync(Guid permissionId, UpdatePermissionCommand command)
 		{
-			if(permissionId != command.Id)
+			if (permissionId != command.Id)
 			{
 				return BadRequest($"{permissionId} is same with {command.Id}");
 			}

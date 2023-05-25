@@ -3,7 +3,6 @@
 // Developed by CountPad Team
 // --------------------------------------------------------
 
-using System.Collections;
 using System.Collections.Generic;
 using CountPad.Domain.Common;
 using CountPad.Domain.Entities.Identities;

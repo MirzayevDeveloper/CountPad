@@ -2,10 +2,10 @@
 using System.Reflection;
 using CountPad.Application.Common.Interfaces;
 using CountPad.Domain.Entities;
+using CountPad.Domain.Entities.Identities;
 using CountPad.Domain.Entities.Orders;
 using CountPad.Domain.Entities.Packages;
 using CountPad.Domain.Entities.Products;
-using CountPad.Domain.Entities.Identities;
 using CountPad.Domain.Entities.Solds;
 using CountPad.Domain.Entities.Users;
 using CountPad.Infrastructure.Persistence.Interceptors;
@@ -45,10 +45,10 @@ namespace CountPad.Infrastructure.Persistence
 			{
 				modelBuilder.Entity(entity.Name).HasKey("Id");
 
-				modelBuilder.Entity(entity.Name).Property(typeof(DateTimeOffset),"CreatedDate")
+				modelBuilder.Entity(entity.Name).Property(typeof(DateTimeOffset), "CreatedDate")
 					.HasColumnType("timestamptz");
 
-				modelBuilder.Entity(entity.Name).Property(typeof(DateTimeOffset),"UpdatedDate")
+				modelBuilder.Entity(entity.Name).Property(typeof(DateTimeOffset), "UpdatedDate")
 					.HasColumnType("timestamptz");
 			}
 
