@@ -16,7 +16,7 @@ namespace CountPad.Application.UseCases.Roles.Commands.UpdateRole
 	{
 		public Guid Id { get; set; }
 		public string RoleName { get; set; }
-		public List<Guid> Permissions { get; set; }
+		public ICollection<Guid> Permissions { get; set; }
 	}
 
 	public class UpdateRoleCommandHandler : IRequestHandler<UpdateRoleCommand, RoleDto>
@@ -51,6 +51,8 @@ namespace CountPad.Application.UseCases.Roles.Commands.UpdateRole
 			maybeRole.Permissions = permissions;
 
 			maybeRole = _context.Roles.Update(maybeRole).Entity;
+
+			await _context.SaveChangesAsync(cancellationToken);
 
 			return _mapper.Map<RoleDto>(maybeRole);
 		}

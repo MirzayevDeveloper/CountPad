@@ -11,8 +11,8 @@ namespace CountPad.Application.Common.Mapping
 		public MappingProfile()
 		{
 			CreateMap<Permission, PermissionDto>().ReverseMap();
-			CreateMap<UpdatePermissionCommand, PermissionDto>().ReverseMap();
 			CreateMap<Role, RoleDto>().ReverseMap();
+			CreateMap<UpdatePermissionCommand, PermissionDto>().ReverseMap();
 		}
 	}
 }

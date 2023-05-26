@@ -16,7 +16,7 @@ namespace CountPad.Application.UseCases.Roles.Commands.CreateRole
 	{
 		public string RoleName { get; set; }
 
-		public ICollection<Guid> Permissions { get; set; } = new List<Guid>();
+		public ICollection<Guid> Permissions { get; set; }
 	}
 
 	public class CreateRoleCommandHandler : IRequestHandler<CreateRoleCommand, RoleDto>

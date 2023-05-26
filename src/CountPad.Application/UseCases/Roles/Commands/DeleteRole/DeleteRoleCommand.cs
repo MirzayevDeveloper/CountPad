@@ -27,8 +27,8 @@ namespace CountPad.Application.UseCases.Roles.Commands.DeleteRole
 
 		public async Task<RoleDto> Handle(DeleteRoleCommand request, CancellationToken cancellationToken)
 		{
-			Role maybeRole =
-				_context.Roles.Find(new object[] { request.roleId });
+			Role maybeRole = await
+				_context.Roles.FindAsync(new object[] { request.roleId }, cancellationToken);
 
 			ValidateRoleIsNotNull(request, maybeRole);
 

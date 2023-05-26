@@ -1,6 +1,9 @@
 ﻿using CountPad.Application.UseCases.Roles.Commands.CreateRole;
+using CountPad.Application.UseCases.Roles.Commands.DeleteRole;
 using CountPad.Application.UseCases.Roles.Commands.UpdateRole;
 using CountPad.Application.UseCases.Roles.Models;
+using CountPad.Application.UseCases.Roles.Queries.GetRoleQuery;
+using CountPad.Application.UseCases.Roles.Queries.GetRolesQuery;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CountPad.Api.Controllers
@@ -20,7 +23,7 @@ namespace CountPad.Api.Controllers
 		}
 
 		[HttpGet]
-		public async ValueTask<ActionResult<List<RoleDto>>> GetAllRoles()
+		public async ValueTask<ActionResult<RoleDto[]>> GetAllRoles()
 		{
 			return await Mediator.Send(new GetRolesQuery());
 		}
@@ -34,6 +37,12 @@ namespace CountPad.Api.Controllers
 			}
 
 			return await Mediator.Send(command);
+		}
+
+		[HttpDelete]
+		public async ValueTask<ActionResult<RoleDto>> DeleteRoleAsync(Guid roleId)
+		{
+			return await Mediator.Send(new DeleteRoleCommand(roleId));
 		}
 	}
 }

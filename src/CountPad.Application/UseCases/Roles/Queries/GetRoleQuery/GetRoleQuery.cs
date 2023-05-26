@@ -7,6 +7,7 @@ using CountPad.Application.Common.Interfaces;
 using CountPad.Application.UseCases.Roles.Models;
 using CountPad.Domain.Entities.Identities;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace CountPad.Application.UseCases.Roles.Queries.GetRoleQuery
 {
@@ -28,7 +29,7 @@ namespace CountPad.Application.UseCases.Roles.Queries.GetRoleQuery
 		public async Task<RoleDto> Handle(GetRoleQuery request, CancellationToken cancellationToken)
 		{
 			Role maybeRole = await _context.Roles
-				.FindAsync(new object[] { request.roleId });
+				.FindAsync(new object[] { request.roleId }, cancellationToken);
 
 			ValidateRoleIsNotNull(request, maybeRole);
 

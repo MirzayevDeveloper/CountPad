@@ -10,6 +10,8 @@ namespace CountPad.Infrastructure.Persistence.EntityTypeConfigurations
 		{
 			builder.HasIndex(r => r.RoleName)
 				.IsUnique();
+
+			builder.Navigation(r => r.Permissions).AutoInclude();
 		}
 	}
 }
