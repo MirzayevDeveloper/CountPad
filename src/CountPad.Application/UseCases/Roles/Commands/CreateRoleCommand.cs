@@ -36,8 +36,9 @@ namespace CountPad.Application.UseCases.Roles.Commands
 
 		public async Task<RoleDto> Handle(CreateRoleCommand request, CancellationToken cancellationToken)
 		{
-			List<Role> roles = await _context.Roles.ToListAsync();
-			Role maybeRole = roles.SingleOrDefault(r => r.RoleName.Equals(request));
+			Role maybeRole = _context.Roles
+				.SingleOrDefault(r => r.RoleName.Equals(request));
+
 			ValidateRoleIsNotExists(request, maybeRole);
 
 			bool areAllExist = _context.Permissions.Any(
@@ -45,14 +46,18 @@ namespace CountPad.Application.UseCases.Roles.Commands
 
 			AreAllPermissionsExist(areAllExist);
 
-			_context.Roles.Add(new()
+			List<Permission> permissions =
+				_context.GetByIds<Permission>(request.Permissions).ToList();
+
+			maybeRole = _context.Roles.Add(new()
 			{
-				RoleName = request.RoleName
-			});
+				RoleName = request.RoleName,
+				Permissions = permissions
+			}).Entity;
 
 			await _context.SaveChangesAsync(cancellationToken);
 
-			return null;
+			return _mapper.Map<RoleDto>(maybeRole);
 		}
 
 		private static void AreAllPermissionsExist(bool areAllExist)

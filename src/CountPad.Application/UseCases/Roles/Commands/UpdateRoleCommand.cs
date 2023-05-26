@@ -38,10 +38,7 @@ namespace CountPad.Application.UseCases.Roles.Commands
 
 			ValidateRoleIsNotNull(request, maybeRole);
 
-			var roles = _context.Roles.Include(r => r.RolePermissions)
-				.Where(r => r.Id.Equals(maybeRole.Id)).ToList();
-
-			return null;
+			return _mapper.Map<RoleDto>(maybeRole);
 		}
 
 		private static void ValidateRoleIsNotNull(UpdateRoleCommand request, Role role)

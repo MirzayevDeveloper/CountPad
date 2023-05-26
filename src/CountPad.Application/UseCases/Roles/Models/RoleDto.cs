@@ -11,6 +11,6 @@ namespace CountPad.Application.UseCases.Roles.Models
 	{
 		public string RoleName { get; set; }
 
-        public PermissionDto[] Permissions { get; set; }
+        public ICollection<PermissionDto> Permissions { get; set; }
     }
 }

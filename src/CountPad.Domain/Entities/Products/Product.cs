@@ -13,7 +13,7 @@ namespace CountPad.Domain.Entities.Products
 		public string Name { get; set; }
 
 		public Guid ProductCategoryId { get; set; }
-		public ProductCategory ProductType { get; set; }
+		public ProductCategory ProductCategory { get; set; }
 
 		public string Description { get; set; }
 	}
