@@ -8,7 +8,7 @@ using CountPad.Application.UseCases.Roles.Models;
 using CountPad.Domain.Entities.Identities;
 using MediatR;
 
-namespace CountPad.Application.UseCases.Roles.Commands
+namespace CountPad.Application.UseCases.Roles.Commands.DeleteRole
 {
 	public record DeleteRoleCommand(Guid roleId) : IRequest<RoleDto>;
 
@@ -32,11 +32,11 @@ namespace CountPad.Application.UseCases.Roles.Commands
 
 			ValidateRoleIsNotNull(request, maybeRole);
 
-			_context.Roles.Remove(maybeRole);
+			maybeRole = _context.Roles.Remove(maybeRole).Entity;
 
 			await _context.SaveChangesAsync(cancellationToken);
 
-			return null;
+			return _mapper.Map<RoleDto>(maybeRole);
 		}
 
 		private static void ValidateRoleIsNotNull(DeleteRoleCommand request, Role maybeRole)

@@ -1,6 +1,6 @@
-﻿using CountPad.Application.UseCases.Roles.Commands;
+﻿using CountPad.Application.UseCases.Roles.Commands.CreateRole;
+using CountPad.Application.UseCases.Roles.Commands.UpdateRole;
 using CountPad.Application.UseCases.Roles.Models;
-using CountPad.Application.UseCases.Roles.Queries;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CountPad.Api.Controllers

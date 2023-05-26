@@ -45,8 +45,6 @@ namespace CountPad.Infrastructure.Persistence
 
 			foreach (var entity in modelBuilder.Model.GetEntityTypes())
 			{
-				//modelBuilder.Entity(entity.Name).HasKey("Id");
-
 				modelBuilder.Entity(entity.Name).Property(typeof(DateTimeOffset), "CreatedDate")
 					.HasColumnType("timestamptz");
 

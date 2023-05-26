@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -8,12 +10,13 @@ using CountPad.Application.UseCases.Roles.Models;
 using CountPad.Domain.Entities.Identities;
 using MediatR;
 
-namespace CountPad.Application.UseCases.Roles.Commands
+namespace CountPad.Application.UseCases.Roles.Commands.UpdateRole
 {
 	public class UpdateRoleCommand : IRequest<RoleDto>
 	{
 		public Guid Id { get; set; }
 		public string RoleName { get; set; }
+		public List<Guid> Permissions { get; set; }
 	}
 
 	public class UpdateRoleCommandHandler : IRequestHandler<UpdateRoleCommand, RoleDto>
@@ -36,7 +39,28 @@ namespace CountPad.Application.UseCases.Roles.Commands
 
 			ValidateRoleIsNotNull(request, maybeRole);
 
+			bool areAllExist = request.Permissions.All(
+				x => _context.Permissions.Any(p => p.Id.Equals(x)));
+
+			AreAllPermissionsExist(areAllExist);
+
+			List<Permission> permissions =
+				_context.Permissions.Where(p => request.Permissions.Contains(p.Id)).ToList();
+
+			maybeRole.RoleName = request.RoleName;
+			maybeRole.Permissions = permissions;
+
+			maybeRole = _context.Roles.Update(maybeRole).Entity;
+
 			return _mapper.Map<RoleDto>(maybeRole);
+		}
+
+		private static void AreAllPermissionsExist(bool areAllExist)
+		{
+			if (!areAllExist)
+			{
+				throw new NotFoundException("Permission id does not exists");
+			}
 		}
 
 		private static void ValidateRoleIsNotNull(UpdateRoleCommand request, Role role)

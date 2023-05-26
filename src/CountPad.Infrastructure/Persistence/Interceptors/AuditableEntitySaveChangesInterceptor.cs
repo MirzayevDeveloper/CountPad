@@ -48,7 +48,7 @@ namespace CountPad.Infrastructure.Persistence.Interceptors
 					entry.Entity.Id = _guidGenerator.Guid;
 				}
 
-				if (entry.State is EntityState.Added || entry.State is EntityState.Modified || entry.HasChangedOwnedEntities())
+				if (entry.State is EntityState.Added || entry.State is EntityState.Modified)
 				{
 					entry.Entity.UpdatedDate = _dateTime.Now;
 				}

@@ -8,7 +8,7 @@ using CountPad.Application.UseCases.Roles.Models;
 using CountPad.Domain.Entities.Identities;
 using MediatR;
 
-namespace CountPad.Application.UseCases.Roles.Queries
+namespace CountPad.Application.UseCases.Roles.Queries.GetRoleQuery
 {
 	public record GetRoleQuery(Guid roleId) : IRequest<RoleDto>;
 
@@ -32,7 +32,7 @@ namespace CountPad.Application.UseCases.Roles.Queries
 
 			ValidateRoleIsNotNull(request, maybeRole);
 
-			return null;
+			return _mapper.Map<RoleDto>(maybeRole);
 		}
 
 		private static void ValidateRoleIsNotNull(GetRoleQuery request, Role maybeRole)

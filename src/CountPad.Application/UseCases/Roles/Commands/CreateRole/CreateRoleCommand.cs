@@ -10,13 +10,13 @@ using CountPad.Application.UseCases.Roles.Models;
 using CountPad.Domain.Entities.Identities;
 using MediatR;
 
-namespace CountPad.Application.UseCases.Roles.Commands
+namespace CountPad.Application.UseCases.Roles.Commands.CreateRole
 {
 	public class CreateRoleCommand : IRequest<RoleDto>
 	{
 		public string RoleName { get; set; }
 
-		public Guid[] Permissions { get; set; }
+		public ICollection<Guid> Permissions { get; set; } = new List<Guid>();
 	}
 
 	public class CreateRoleCommandHandler : IRequestHandler<CreateRoleCommand, RoleDto>
@@ -39,19 +39,21 @@ namespace CountPad.Application.UseCases.Roles.Commands
 
 			ValidateRoleIsNotExists(request, maybeRole);
 
-			bool areAllExist = _context.Permissions.Any(
-				p => request.Permissions.All(x => p.Id.Equals(x)));
+			bool areAllExist = request.Permissions.All(
+				x => _context.Permissions.Any(p => p.Id.Equals(x)));
 
 			AreAllPermissionsExist(areAllExist);
 
 			List<Permission> permissions =
-				_context.GetByIds<Permission>(request.Permissions).ToList();
+				_context.Permissions.Where(p => request.Permissions.Contains(p.Id)).ToList();
 
-			maybeRole = _context.Roles.Add(new()
+			var entity = new Role
 			{
 				RoleName = request.RoleName,
-				Permissions = permissions
-			}).Entity;
+				Permissions = permissions,
+			};
+
+			maybeRole = _context.Roles.Add(entity).Entity;
 
 			await _context.SaveChangesAsync(cancellationToken);
 
