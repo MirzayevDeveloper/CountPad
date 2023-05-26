@@ -38,9 +38,11 @@ namespace CountPad.Application.UseCases.Permissions.Commands.UpdatePermission
 
 			maybePermission.PermissionName = request.PermissionName;
 
+			maybePermission = _context.Permissions.Update(maybePermission).Entity;
+
 			await _context.SaveChangesAsync(cancellationToken);
 
-			return _mapper.Map<PermissionDto>(request);
+			return _mapper.Map<PermissionDto>(maybePermission);
 		}
 
 		private static void ValidatePermissionIsNotNull(UpdatePermissionCommand request, Permission maybePermission)

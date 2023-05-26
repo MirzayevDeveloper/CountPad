@@ -37,21 +37,13 @@ namespace CountPad.Application.UseCases.Roles.Commands
 		public async Task<RoleDto> Handle(CreateRoleCommand request, CancellationToken cancellationToken)
 		{
 			List<Role> roles = await _context.Roles.ToListAsync();
-
 			Role maybeRole = roles.SingleOrDefault(r => r.RoleName.Equals(request));
-
-			if (maybeRole is not null)
-			{
-				throw new AlreadyExistsException(nameof(maybeRole), request.RoleName);
-			}
+			ValidateRoleIsNotExists(request, maybeRole);
 
 			bool areAllExist = _context.Permissions.Any(
 				p => request.Permissions.All(x => p.Id.Equals(x)));
 
-			if (!areAllExist)
-			{
-				throw new NotFoundException("Permission id does not exists");
-			}
+			AreAllPermissionsExist(areAllExist);
 
 			_context.Roles.Add(new()
 			{
@@ -86,13 +78,30 @@ namespace CountPad.Application.UseCases.Roles.Commands
 					Permission = maybePermission
 				});
 			}
+
 			_context.RolePermissions.AddRange(rolePermissions);
 
-			return new RoleDto 
+			return new RoleDto
 			{
 				RoleName = maybeRole.RoleName,
-				Permissions = permissionsDtos.ToArray() 
+				Permissions = permissionsDtos.ToArray()
 			};
+		}
+
+		private static void AreAllPermissionsExist(bool areAllExist)
+		{
+			if (!areAllExist)
+			{
+				throw new NotFoundException("Permission id does not exists");
+			}
+		}
+
+		private static void ValidateRoleIsNotExists(CreateRoleCommand request, Role maybeRole)
+		{
+			if (maybeRole is not null)
+			{
+				throw new AlreadyExistsException(nameof(maybeRole), request.RoleName);
+			}
 		}
 
 		private static void ValidateRoleIsNotNull(Guid requestId, Permission maybePermission)

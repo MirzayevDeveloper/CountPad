@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -9,17 +11,18 @@ using CountPad.Application.UseCases.Roles.Extensions;
 using CountPad.Application.UseCases.Roles.Models;
 using CountPad.Domain.Entities.Identities;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
-namespace CountPad.Application.UseCases.Roles.Commands
+namespace CountPad.Application.UseCases.Roles.Queries
 {
-	public record DeleteRoleCommand(Guid roleId) : IRequest<RoleDto>;
+	public record GetRoleQuery(Guid roleId) : IRequest<RoleDto>;
 
-	public class DeleteRoleCommandHandler : IRequestHandler<DeleteRoleCommand, RoleDto>
+	public class GetRoleQueryHandler : IRequestHandler<GetRoleQuery, RoleDto>
 	{
 		private readonly IApplicationDbContext _context;
 		private readonly IMapper _mapper;
 
-		public DeleteRoleCommandHandler(
+		public GetRoleQueryHandler(
 			IApplicationDbContext context,
 			IMapper mapper)
 		{
@@ -27,24 +30,19 @@ namespace CountPad.Application.UseCases.Roles.Commands
 			_mapper = mapper;
 		}
 
-		public async Task<RoleDto> Handle(DeleteRoleCommand request, CancellationToken cancellationToken)
+		public async Task<RoleDto> Handle(GetRoleQuery request, CancellationToken cancellationToken)
 		{
-			Role maybeRole =
-				_context.Roles.Find(new object[] { request.roleId });
+			Role maybeRole = await _context.Roles
+				.FindAsync(new object[] { request.roleId });
 
 			ValidateRoleIsNotNull(request, maybeRole);
 
-			RoleDto dto = await 
-				RoleExtension.GetRoleDtoFromDb(maybeRole);
-
-			_context.Roles.Remove(maybeRole);
-
-			await _context.SaveChangesAsync(cancellationToken);
+			RoleDto dto = await RoleExtension.GetRoleDtoFromDb(maybeRole);
 
 			return dto;
 		}
 
-		private static void ValidateRoleIsNotNull(DeleteRoleCommand request, Role maybeRole)
+		private static void ValidateRoleIsNotNull(GetRoleQuery request, Role maybeRole)
 		{
 			if (maybeRole == null)
 			{

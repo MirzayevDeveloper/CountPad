@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CountPad.Api.Controllers
 {
-	public class PermissionController : ApiControllerBase
+	public class PermissionsController : ApiControllerBase
 	{
 		[HttpPost]
 		public async ValueTask<ActionResult<PermissionDto>> PostPermissionAsync(CreatePermissionCommand command)
