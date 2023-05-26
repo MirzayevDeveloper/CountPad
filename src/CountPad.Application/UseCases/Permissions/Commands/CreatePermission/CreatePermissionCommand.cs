@@ -29,12 +29,10 @@ namespace CountPad.Application.UseCases.Permissions.Commands.CreatePermission
 
 		public CreatePermissionCommandHandler(
 			IApplicationDbContext context,
-			IMapper mapper,
-			IDateTime dateTime)
+			IMapper mapper)
 		{
 			_context = context;
 			_mapper = mapper;
-			this.dateTime = dateTime;
 		}
 
 		public async Task<PermissionDto> Handle(CreatePermissionCommand request, CancellationToken cancellationToken)
@@ -43,10 +41,6 @@ namespace CountPad.Application.UseCases.Permissions.Commands.CreatePermission
 			{
 				PermissionName = request.PermissionName
 			}).Entity;
-
-			DateTimeOffset s = dateTime.Now;
-
-			DateTime q = dateTime.Now;
 
 			await _context.SaveChangesAsync(cancellationToken);
 

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using CountPad.Application.Common.Exceptions;
 using CountPad.Application.Common.Interfaces;
+using CountPad.Application.Common.Models;
 using CountPad.Application.UseCases.Users.Models;
 using CountPad.Domain.Entities.Identities;
 using CountPad.Domain.Entities.Users;
@@ -14,7 +15,7 @@ using MediatR;
 
 namespace CountPad.Application.UseCases.Users.Commands.CreateUser
 {
-	public class CreateUserCommand : IRequest<UserDto>
+	public class CreateUserCommand : IRequest<ResponseCore<UserDto>>
 	{
 		public string Name { get; set; }
 		public string Phone { get; set; }
@@ -23,7 +24,7 @@ namespace CountPad.Application.UseCases.Users.Commands.CreateUser
 		public ICollection<Guid> Roles { get; set; }
 	}
 
-	public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, UserDto>
+	public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, ResponseCore<UserDto>>
 	{
 		private readonly IApplicationDbContext _context;
 		private readonly IMapper _mapper;
@@ -36,12 +37,11 @@ namespace CountPad.Application.UseCases.Users.Commands.CreateUser
 			_mapper = mapper;
 		}
 
-		public async Task<UserDto> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+		public async Task<ResponseCore<UserDto>> Handle(CreateUserCommand request, CancellationToken cancellationToken)
 		{
-			User maybeUser = _context.Users.Where(
-				u => u.Phone.Equals(request.Phone)).FirstOrDefault();
+			bool isExists = _context.Users.Any(u => u.Phone == request.Phone);
 
-			ValidateUserNotExists(request, maybeUser);
+			ValidateUserNotExists(request, isExists);
 
 			bool areAllExist = request.Roles.All(
 				x => _context.Roles.Any(p => p.Id.Equals(x)));
@@ -53,22 +53,28 @@ namespace CountPad.Application.UseCases.Users.Commands.CreateUser
 
 			var user = new User
 			{
-				Name = maybeUser.Name,
-				Phone = maybeUser.Phone,
-				Password = maybeUser.Password,
-				Roles = roles
+				Name = request.Name,
+				Phone = request.Phone,
+				Password = request.Password,
+				Roles = roles,
 			};
 
-			maybeUser = _context.Users.Add(user).Entity;
+			user = _context.Users.Add(user).Entity;
 
 			await _context.SaveChangesAsync(cancellationToken);
 
-			return _mapper.Map<UserDto>(maybeUser);
+			var result = new ResponseCore<UserDto>
+			{
+				IsSuccess = true,
+				Result = _mapper.Map<UserDto>(user)
+			};
+
+			return result;
 		}
 
-		private static void ValidateUserNotExists(CreateUserCommand request, User maybeUser)
+		private static void ValidateUserNotExists(CreateUserCommand request, bool isExists)
 		{
-			if (maybeUser != null)
+			if (isExists)
 			{
 				throw new AlreadyExistsException(nameof(User), request.Phone);
 			}
