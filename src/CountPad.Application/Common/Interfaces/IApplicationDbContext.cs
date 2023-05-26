@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using CountPad.Domain.Entities;
@@ -26,7 +25,7 @@ namespace CountPad.Application.Common.Interfaces
 		DbSet<Sold> Solds { get; }
 		DbSet<User> Users { get; }
 
-		IQueryable<T> GetByIds<T>(IEnumerable<Guid> ids) where T: class;
+		IQueryable<T> GetByIds<T>(IEnumerable<Guid> ids) where T : class;
 
 		Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 	}

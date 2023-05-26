@@ -13,7 +13,7 @@ namespace CountPad.Domain.Entities.Identities
 	{
 		public string RoleName { get; set; }
 
-		public ICollection<User> Users { get; set; }
-		public ICollection<Permission> Permissions { get; set; }
+		public virtual ICollection<User> Users { get; set; }
+		public virtual ICollection<Permission> Permissions { get; set; }
 	}
 }

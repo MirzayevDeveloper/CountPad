@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -8,14 +7,13 @@ using CountPad.Application.Common.Interfaces;
 using CountPad.Application.UseCases.Roles.Models;
 using CountPad.Domain.Entities.Identities;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace CountPad.Application.UseCases.Roles.Commands
 {
 	public class UpdateRoleCommand : IRequest<RoleDto>
 	{
-        public Guid Id { get; set; }
-        public string RoleName { get; set; }
+		public Guid Id { get; set; }
+		public string RoleName { get; set; }
 	}
 
 	public class UpdateRoleCommandHandler : IRequestHandler<UpdateRoleCommand, RoleDto>

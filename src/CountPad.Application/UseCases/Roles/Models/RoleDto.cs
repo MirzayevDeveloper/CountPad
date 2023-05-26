@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using CountPad.Application.UseCases.Permissions.Models;
 
 namespace CountPad.Application.UseCases.Roles.Models
@@ -11,6 +7,6 @@ namespace CountPad.Application.UseCases.Roles.Models
 	{
 		public string RoleName { get; set; }
 
-        public ICollection<PermissionDto> Permissions { get; set; }
-    }
+		public ICollection<PermissionDto> Permissions { get; set; }
+	}
 }

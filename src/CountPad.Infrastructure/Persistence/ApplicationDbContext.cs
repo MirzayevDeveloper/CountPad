@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Reflection;
-using System.Threading.Tasks;
 using CountPad.Application.Common.Interfaces;
 using CountPad.Domain.Entities;
 using CountPad.Domain.Entities.Identities;
@@ -47,7 +45,7 @@ namespace CountPad.Infrastructure.Persistence
 
 			foreach (var entity in modelBuilder.Model.GetEntityTypes())
 			{
-				modelBuilder.Entity(entity.Name).HasKey("Id");
+				//modelBuilder.Entity(entity.Name).HasKey("Id");
 
 				modelBuilder.Entity(entity.Name).Property(typeof(DateTimeOffset), "CreatedDate")
 					.HasColumnType("timestamptz");
@@ -66,7 +64,7 @@ namespace CountPad.Infrastructure.Persistence
 
 		public IQueryable<T> GetByIds<T>(IEnumerable<Guid> ids) where T : class
 		{
-			var entities = new List<T>(); 
+			var entities = new List<T>();
 
 			using (var context = new ApplicationDbContext(_options, _interceptor))
 			{
