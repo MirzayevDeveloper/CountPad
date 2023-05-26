@@ -2,7 +2,9 @@
 using CountPad.Application.UseCases.Permissions.Commands.UpdatePermission;
 using CountPad.Application.UseCases.Permissions.Models;
 using CountPad.Application.UseCases.Roles.Models;
+using CountPad.Application.UseCases.Users.Models;
 using CountPad.Domain.Entities.Identities;
+using CountPad.Domain.Entities.Users;
 
 namespace CountPad.Application.Common.Mapping
 {
@@ -10,8 +12,9 @@ namespace CountPad.Application.Common.Mapping
 	{
 		public MappingProfile()
 		{
-			CreateMap<Permission, PermissionDto>().ReverseMap();
 			CreateMap<Role, RoleDto>().ReverseMap();
+			CreateMap<UserDto, User>().ReverseMap();
+			CreateMap<Permission, PermissionDto>().ReverseMap();
 			CreateMap<UpdatePermissionCommand, PermissionDto>().ReverseMap();
 		}
 	}

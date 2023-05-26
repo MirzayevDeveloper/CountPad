@@ -10,6 +10,8 @@ namespace CountPad.Infrastructure.Persistence.Configurations
 		{
 			builder.HasIndex(u => u.Phone)
 				.IsUnique();
+
+			builder.Navigation(u => u.Roles).AutoInclude();
 		}
 	}
 }

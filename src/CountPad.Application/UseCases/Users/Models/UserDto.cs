@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using CountPad.Application.Common.Models;
-using CountPad.Domain.Entities.Identities;
+using CountPad.Application.UseCases.Roles.Models;
 
 namespace CountPad.Application.UseCases.Users.Models
 {
@@ -14,6 +10,6 @@ namespace CountPad.Application.UseCases.Users.Models
 		public string Phone { get; set; }
 		public string Password { get; set; }
 
-		public ICollection<Role> Roles { get; set; }
+		public ICollection<RoleDto> Roles { get; set; }
 	}
 }

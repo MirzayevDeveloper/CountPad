@@ -7,28 +7,31 @@ using System.Threading.Tasks;
 using AutoMapper;
 using CountPad.Application.Common.Exceptions;
 using CountPad.Application.Common.Interfaces;
+using CountPad.Application.UseCases.Roles.Models;
 using CountPad.Application.UseCases.Users.Models;
 using CountPad.Domain.Entities.Identities;
 using CountPad.Domain.Entities.Users;
 using MediatR;
 
-namespace CountPad.Application.UseCases.Users.Commands.CreateUser
+namespace CountPad.Application.UseCases.Users.Commands.UpdateUser
 {
-	public class CreateUserCommand : IRequest<UserDto>
+	public class UpdateUserCommand : IRequest<UserDto>
 	{
-		public string Name { get; set; }
+        public Guid Id { get; set; }
+        public string Name { get; set; }
 		public string Phone { get; set; }
 		public string Password { get; set; }
+        public string ConfirmPassword { get; set; }
 
-		public ICollection<Guid> Roles { get; set; }
+        public ICollection<Guid> Roles { get; set; }
 	}
 
-	public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, UserDto>
+	public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, UserDto>
 	{
 		private readonly IApplicationDbContext _context;
 		private readonly IMapper _mapper;
 
-		public CreateUserCommandHandler(
+		public UpdateUserCommandHandler(
 			IApplicationDbContext context,
 			IMapper mapper)
 		{
@@ -36,12 +39,12 @@ namespace CountPad.Application.UseCases.Users.Commands.CreateUser
 			_mapper = mapper;
 		}
 
-		public async Task<UserDto> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+		public async Task<UserDto> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
 		{
-			User maybeUser = _context.Users.Where(
-				u => u.Phone.Equals(request.Phone)).FirstOrDefault();
+			User maybeUser = await _context.Users
+				.FindAsync(new object[] { request.Id }, cancellationToken);
 
-			ValidateUserNotExists(request, maybeUser);
+			ValidateUserIsNotNull(request, maybeUser);
 
 			bool areAllExist = request.Roles.All(
 				x => _context.Roles.Any(p => p.Id.Equals(x)));
@@ -51,26 +54,23 @@ namespace CountPad.Application.UseCases.Users.Commands.CreateUser
 			List<Role> roles = _context.Roles
 				.Where(r => request.Roles.Contains(r.Id)).ToList();
 
-			var user = new User
-			{
-				Name = maybeUser.Name,
-				Phone = maybeUser.Phone,
-				Password = maybeUser.Password,
-				Roles = roles
-			};
+			maybeUser.Phone = request.Phone;
+			maybeUser.Password = request.Password;
+			maybeUser.Roles = roles;
+			maybeUser.Name = request.Name;
 
-			maybeUser = _context.Users.Add(user).Entity;
+			maybeUser = _context.Users.Update(maybeUser).Entity;
 
 			await _context.SaveChangesAsync(cancellationToken);
 
 			return _mapper.Map<UserDto>(maybeUser);
 		}
 
-		private static void ValidateUserNotExists(CreateUserCommand request, User maybeUser)
+		private static void ValidateUserIsNotNull(UpdateUserCommand request, User maybeUser)
 		{
-			if (maybeUser != null)
+			if (maybeUser == null)
 			{
-				throw new AlreadyExistsException(nameof(User), request.Phone);
+				throw new NotFoundException(nameof(User), request.Id);
 			}
 		}
 
