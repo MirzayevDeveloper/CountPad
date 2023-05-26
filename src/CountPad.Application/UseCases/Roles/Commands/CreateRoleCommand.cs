@@ -52,40 +52,7 @@ namespace CountPad.Application.UseCases.Roles.Commands
 
 			await _context.SaveChangesAsync(cancellationToken);
 
-			roles = await _context.Roles.ToListAsync();
-			maybeRole = roles.SingleOrDefault(r => r.RoleName.Equals(request));
-
-			var permissionsDtos = new List<PermissionDto>();
-			var rolePermissions = new List<RolePermission>();
-
-			foreach (var requestId in request.Permissions)
-			{
-				Permission maybePermission =
-					await _context.Permissions.FindAsync(new object[] { requestId });
-
-				ValidateRoleIsNotNull(requestId, maybePermission);
-
-				PermissionDto dto =
-					_mapper.Map<PermissionDto>(maybePermission);
-
-				permissionsDtos.Add(dto);
-
-				rolePermissions.Add(new()
-				{
-					PermissionId = requestId,
-					RoleId = maybeRole.Id,
-					Role = maybeRole,
-					Permission = maybePermission
-				});
-			}
-
-			_context.RolePermissions.AddRange(rolePermissions);
-
-			return new RoleDto
-			{
-				RoleName = maybeRole.RoleName,
-				Permissions = permissionsDtos.ToArray()
-			};
+			return null;
 		}
 
 		private static void AreAllPermissionsExist(bool areAllExist)

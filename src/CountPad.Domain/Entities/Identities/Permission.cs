@@ -12,6 +12,6 @@ namespace CountPad.Domain.Entities.Identities
 	{
 		public string PermissionName { get; set; }
 
-		public ICollection<RolePermission> RolePermissions { get; set; }
+		public ICollection<Role> RolePermissions { get; set; }
 	}
 }

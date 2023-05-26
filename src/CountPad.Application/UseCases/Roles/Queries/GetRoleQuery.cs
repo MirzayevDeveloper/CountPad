@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using CountPad.Application.Common.Exceptions;
 using CountPad.Application.Common.Interfaces;
-using CountPad.Application.UseCases.Permissions.Models;
-using CountPad.Application.UseCases.Roles.Extensions;
 using CountPad.Application.UseCases.Roles.Models;
 using CountPad.Domain.Entities.Identities;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace CountPad.Application.UseCases.Roles.Queries
 {
@@ -37,9 +32,7 @@ namespace CountPad.Application.UseCases.Roles.Queries
 
 			ValidateRoleIsNotNull(request, maybeRole);
 
-			RoleDto dto = await RoleExtension.GetRoleDtoFromDb(maybeRole);
-
-			return dto;
+			return null;
 		}
 
 		private static void ValidateRoleIsNotNull(GetRoleQuery request, Role maybeRole)

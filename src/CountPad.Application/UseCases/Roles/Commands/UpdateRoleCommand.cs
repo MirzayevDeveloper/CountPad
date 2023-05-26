@@ -41,7 +41,6 @@ namespace CountPad.Application.UseCases.Roles.Commands
 			var roles = _context.Roles.Include(r => r.RolePermissions)
 				.Where(r => r.Id.Equals(maybeRole.Id)).ToList();
 
-
 			return null;
 		}
 

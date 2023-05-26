@@ -4,8 +4,6 @@ using System.Threading.Tasks;
 using AutoMapper;
 using CountPad.Application.Common.Exceptions;
 using CountPad.Application.Common.Interfaces;
-using CountPad.Application.UseCases.Permissions.Models;
-using CountPad.Application.UseCases.Roles.Extensions;
 using CountPad.Application.UseCases.Roles.Models;
 using CountPad.Domain.Entities.Identities;
 using MediatR;
@@ -34,14 +32,11 @@ namespace CountPad.Application.UseCases.Roles.Commands
 
 			ValidateRoleIsNotNull(request, maybeRole);
 
-			RoleDto dto = await 
-				RoleExtension.GetRoleDtoFromDb(maybeRole);
-
 			_context.Roles.Remove(maybeRole);
 
 			await _context.SaveChangesAsync(cancellationToken);
 
-			return dto;
+			return null;
 		}
 
 		private static void ValidateRoleIsNotNull(DeleteRoleCommand request, Role maybeRole)

@@ -15,6 +15,6 @@ namespace CountPad.Domain.Entities.Users
 		public string Phone { get; set; }
 		public string Password { get; set; }
 
-		public ICollection<UserRole> UserRoles { get; set; }
+		public ICollection<Role> UserRoles { get; set; }
 	}
 }

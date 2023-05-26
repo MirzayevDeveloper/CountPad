@@ -5,6 +5,7 @@
 
 using System.Collections.Generic;
 using CountPad.Domain.Common;
+using CountPad.Domain.Entities.Users;
 
 namespace CountPad.Domain.Entities.Identities
 {
@@ -12,7 +13,7 @@ namespace CountPad.Domain.Entities.Identities
 	{
 		public string RoleName { get; set; }
 
-		public ICollection<UserRole> UserRoles { get; set; }
-		public ICollection<RolePermission> RolePermissions { get; set; }
+		public ICollection<User> UserRoles { get; set; }
+		public ICollection<Permission> RolePermissions { get; set; }
 	}
 }
