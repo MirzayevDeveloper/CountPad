@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using CountPad.Application.Common.Exceptions;
 using CountPad.Application.Common.Interfaces;
-using CountPad.Application.UseCases.Roles.Models;
 using CountPad.Application.UseCases.Users.Models;
 using CountPad.Domain.Entities.Identities;
 using CountPad.Domain.Entities.Users;
@@ -17,13 +15,13 @@ namespace CountPad.Application.UseCases.Users.Commands.UpdateUser
 {
 	public class UpdateUserCommand : IRequest<UserDto>
 	{
-        public Guid Id { get; set; }
-        public string Name { get; set; }
+		public Guid Id { get; set; }
+		public string Name { get; set; }
 		public string Phone { get; set; }
 		public string Password { get; set; }
-        public string ConfirmPassword { get; set; }
+		public string ConfirmPassword { get; set; }
 
-        public ICollection<Guid> Roles { get; set; }
+		public ICollection<Guid> Roles { get; set; }
 	}
 
 	public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, UserDto>

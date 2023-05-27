@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using CountPad.Application.Common.Exceptions;
 using CountPad.Application.Common.Interfaces;
-using CountPad.Application.Common.Models;
 using CountPad.Application.UseCases.Users.Models;
 using CountPad.Domain.Entities.Identities;
 using CountPad.Domain.Entities.Users;
@@ -15,7 +13,7 @@ using MediatR;
 
 namespace CountPad.Application.UseCases.Users.Commands.CreateUser
 {
-	public class CreateUserCommand : IRequest<ResponseCore<UserDto>>
+	public class CreateUserCommand : IRequest<UserDto>
 	{
 		public string Name { get; set; }
 		public string Phone { get; set; }
@@ -24,7 +22,7 @@ namespace CountPad.Application.UseCases.Users.Commands.CreateUser
 		public ICollection<Guid> Roles { get; set; }
 	}
 
-	public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, ResponseCore<UserDto>>
+	public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, UserDto>
 	{
 		private readonly IApplicationDbContext _context;
 		private readonly IMapper _mapper;
@@ -37,7 +35,7 @@ namespace CountPad.Application.UseCases.Users.Commands.CreateUser
 			_mapper = mapper;
 		}
 
-		public async Task<ResponseCore<UserDto>> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+		public async Task<UserDto> Handle(CreateUserCommand request, CancellationToken cancellationToken)
 		{
 			bool isExists = _context.Users.Any(u => u.Phone == request.Phone);
 
@@ -63,13 +61,7 @@ namespace CountPad.Application.UseCases.Users.Commands.CreateUser
 
 			await _context.SaveChangesAsync(cancellationToken);
 
-			var result = new ResponseCore<UserDto>
-			{
-				IsSuccess = true,
-				Result = _mapper.Map<UserDto>(user)
-			};
-
-			return result;
+			return _mapper.Map<UserDto>(user);
 		}
 
 		private static void ValidateUserNotExists(CreateUserCommand request, bool isExists)

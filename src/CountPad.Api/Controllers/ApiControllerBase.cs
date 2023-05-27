@@ -1,10 +1,11 @@
-﻿using MediatR;
+﻿using CountPad.Api.Filters;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CountPad.Api.Controllers
 {
 	[ApiController]
-	//[ApiExceptionFilter]
+	[ApiExceptionFilter]
 	[Route("api/[controller]")]
 	public class ApiControllerBase : ControllerBase
 	{

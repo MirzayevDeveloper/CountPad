@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -13,7 +10,7 @@ using MediatR;
 
 namespace CountPad.Application.UseCases.Users.Commands.DeleteUser
 {
-	public record DeleteUserCommand(Guid userId): IRequest<UserDto>;
+	public record DeleteUserCommand(Guid userId) : IRequest<UserDto>;
 
 	public class DeleteUserCommandHandler : IRequestHandler<DeleteUserCommand, UserDto>
 	{

@@ -7,7 +7,6 @@ using CountPad.Application.Common.Interfaces;
 using CountPad.Application.UseCases.Roles.Models;
 using CountPad.Domain.Entities.Identities;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace CountPad.Application.UseCases.Roles.Queries.GetRoleQuery
 {
