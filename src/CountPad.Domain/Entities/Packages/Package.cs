@@ -4,6 +4,7 @@
 // --------------------------------------------------------
 
 using System;
+using CountPad.Domain.Common.BaseEntities;
 using CountPad.Domain.Entities.Products;
 
 namespace CountPad.Domain.Entities.Packages

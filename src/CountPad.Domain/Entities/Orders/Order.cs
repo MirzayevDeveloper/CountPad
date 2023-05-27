@@ -4,13 +4,13 @@
 // --------------------------------------------------------
 
 using System;
-using CountPad.Domain.Common;
+using CountPad.Domain.Common.BaseEntities;
 using CountPad.Domain.Entities.Packages;
 using CountPad.Domain.Entities.Solds;
 
 namespace CountPad.Domain.Entities.Orders
 {
-	public class Order : BaseAuditableEntity
+    public class Order : BaseAuditableEntity
 	{
 		public Guid PackageId { get; set; }
 		public Package Package { get; set; }

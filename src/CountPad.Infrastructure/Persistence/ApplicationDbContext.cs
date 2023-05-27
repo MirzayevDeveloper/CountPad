@@ -9,6 +9,7 @@ using CountPad.Domain.Entities.Orders;
 using CountPad.Domain.Entities.Packages;
 using CountPad.Domain.Entities.Products;
 using CountPad.Domain.Entities.Solds;
+using CountPad.Domain.Entities.Tokens;
 using CountPad.Domain.Entities.Users;
 using CountPad.Infrastructure.Persistence.Interceptors;
 using Microsoft.EntityFrameworkCore;
@@ -37,6 +38,7 @@ namespace CountPad.Infrastructure.Persistence
 		public DbSet<Permission> Permissions { get; set; }
 		public DbSet<Sold> Solds { get; set; }
 		public DbSet<User> Users { get; set; }
+		public DbSet<UserRefreshToken> RefreshTokens { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{

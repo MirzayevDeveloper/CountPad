@@ -16,7 +16,7 @@ namespace CountPad.Application.UseCases.Users.Commands.CreateUser
 	public class CreateUserCommand : IRequest<UserDto>
 	{
 		public string Name { get; set; }
-		public string Phone { get; set; }
+		public string Phone { get; set; } = "+998";
 		public string Password { get; set; }
 
 		public ICollection<Guid> Roles { get; set; }

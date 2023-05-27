@@ -9,6 +9,7 @@ using CountPad.Domain.Entities.Orders;
 using CountPad.Domain.Entities.Packages;
 using CountPad.Domain.Entities.Products;
 using CountPad.Domain.Entities.Solds;
+using CountPad.Domain.Entities.Tokens;
 using CountPad.Domain.Entities.Users;
 using Microsoft.EntityFrameworkCore;
 
@@ -24,6 +25,7 @@ namespace CountPad.Application.Common.Interfaces
 		DbSet<Permission> Permissions { get; }
 		DbSet<Sold> Solds { get; }
 		DbSet<User> Users { get; }
+		DbSet<UserRefreshToken> RefreshTokens { get; }
 
 		IQueryable<T> GetByIds<T>(IEnumerable<Guid> ids) where T : class;
 

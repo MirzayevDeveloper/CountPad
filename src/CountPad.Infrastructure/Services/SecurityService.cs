@@ -5,14 +5,14 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using CountPad.Application.Common.Interfaces;
-using CountPad.Domain.Common;
+using CountPad.Domain.Common.Security;
 using CountPad.Domain.Entities.Users;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
 namespace CountPad.Infrastructure.Services
 {
-	public class SecurityService : ISecurityService
+    public class SecurityService : ISecurityService
 	{
 		private readonly TokenConfiguration _tokenConfiguration;
 

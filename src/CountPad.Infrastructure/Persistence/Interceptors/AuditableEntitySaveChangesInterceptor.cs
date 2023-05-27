@@ -2,14 +2,14 @@
 using System.Threading;
 using System.Threading.Tasks;
 using CountPad.Application.Common.Interfaces;
-using CountPad.Domain.Common;
+using CountPad.Domain.Common.BaseEntities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace CountPad.Infrastructure.Persistence.Interceptors
 {
-	public class AuditableEntitySaveChangesInterceptor : SaveChangesInterceptor
+    public class AuditableEntitySaveChangesInterceptor : SaveChangesInterceptor
 	{
 		private readonly IDateTime _dateTime;
 		private readonly IGuidGenerator _guidGenerator;

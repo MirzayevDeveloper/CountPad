@@ -4,12 +4,12 @@
 // --------------------------------------------------------
 
 using System.Collections.Generic;
-using CountPad.Domain.Common;
+using CountPad.Domain.Common.BaseEntities;
 using CountPad.Domain.Entities.Users;
 
 namespace CountPad.Domain.Entities.Identities
 {
-	public class Role : BaseAuditableEntity
+    public class Role : BaseAuditableEntity
 	{
 		public string RoleName { get; set; }
 
