@@ -9,7 +9,7 @@ using CountPad.Domain.Entities.Users;
 
 namespace CountPad.Domain.Entities.Solds
 {
-    public class Sold : BaseAuditableEntity
+	public class Sold : BaseAuditableEntity
 	{
 		public DateTime SoldDate { get; set; }
 

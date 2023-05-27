@@ -236,6 +236,35 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                     b.ToTable("Solds");
                 });
 
+            modelBuilder.Entity("CountPad.Domain.Entities.Tokens.UserRefreshToken", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTimeOffset>("AccessTokenExpiredDateTime")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTimeOffset>("CreatedDate")
+                        .HasColumnType("timestamptz");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("text");
+
+                    b.Property<string>("RefreshToken")
+                        .HasColumnType("text");
+
+                    b.Property<DateTimeOffset>("RefreshTokenExpiredDateTime")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTimeOffset>("UpdatedDate")
+                        .HasColumnType("timestamptz");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RefreshTokens");
+                });
+
             modelBuilder.Entity("CountPad.Domain.Entities.Users.User", b =>
                 {
                     b.Property<Guid>("Id")

@@ -1,5 +1,5 @@
-﻿using System.Text;
-using System;
+﻿using System;
+using System.Text;
 using CountPad.Application.Common.Interfaces;
 using CountPad.Infrastructure.Persistence;
 using CountPad.Infrastructure.Persistence.Interceptors;

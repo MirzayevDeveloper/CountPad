@@ -8,7 +8,7 @@ using CountPad.Domain.Common.BaseEntities;
 
 namespace CountPad.Domain.Entities.Identities
 {
-    public class Permission : BaseAuditableEntity
+	public class Permission : BaseAuditableEntity
 	{
 		public string PermissionName { get; set; }
 

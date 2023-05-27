@@ -9,7 +9,7 @@ using CountPad.Domain.Entities.Products;
 
 namespace CountPad.Domain.Entities.Packages
 {
-    public class Package : BaseAuditableEntity
+	public class Package : BaseAuditableEntity
 	{
 		public Double Count { get; set; }
 		public Decimal IncomingPrice { get; set; }

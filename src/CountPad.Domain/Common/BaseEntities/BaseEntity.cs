@@ -7,8 +7,8 @@ using System;
 
 namespace CountPad.Domain.Common.BaseEntities
 {
-    public abstract class BaseEntity
-    {
-        public Guid Id { get; set; }
-    }
+	public abstract class BaseEntity
+	{
+		public Guid Id { get; set; }
+	}
 }

@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using CountPad.Application.Common.Exceptions;
 using CountPad.Application.Common.Interfaces;
 using CountPad.Application.UseCases.Permissions.Models;
 using CountPad.Domain.Entities.Identities;
@@ -35,17 +36,27 @@ namespace CountPad.Application.UseCases.Permissions.Commands.CreatePermission
 
 		public async Task<PermissionDto> Handle(CreatePermissionCommand request, CancellationToken cancellationToken)
 		{
-			var a = _context.Permissions.Add(new()
+			Permission maybePermission = _context.Permissions
+				.SingleOrDefault(p => p.PermissionName.Equals(request.PermissionName));
+
+			ValidatePermissionDoesNoteExist(request, maybePermission);
+
+			maybePermission = _context.Permissions.Add(new()
 			{
 				PermissionName = request.PermissionName
 			}).Entity;
 
 			await _context.SaveChangesAsync(cancellationToken);
 
-			Permission permission = _context.Permissions
-				.SingleOrDefault(p => p.PermissionName.Equals(request.PermissionName));
+			return _mapper.Map<PermissionDto>(maybePermission);
+		}
 
-			return _mapper.Map<PermissionDto>(permission);
+		private static void ValidatePermissionDoesNoteExist(CreatePermissionCommand request, Permission permission)
+		{
+			if (permission != null)
+			{
+				throw new AlreadyExistsException(nameof(Permission), request.PermissionName);
+			}
 		}
 	}
 }

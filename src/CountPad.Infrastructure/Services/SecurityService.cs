@@ -12,7 +12,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace CountPad.Infrastructure.Services
 {
-    public class SecurityService : ISecurityService
+	public class SecurityService : ISecurityService
 	{
 		private readonly TokenConfiguration _tokenConfiguration;
 

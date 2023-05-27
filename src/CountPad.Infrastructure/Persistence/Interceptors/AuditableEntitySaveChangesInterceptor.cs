@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace CountPad.Infrastructure.Persistence.Interceptors
 {
-    public class AuditableEntitySaveChangesInterceptor : SaveChangesInterceptor
+	public class AuditableEntitySaveChangesInterceptor : SaveChangesInterceptor
 	{
 		private readonly IDateTime _dateTime;
 		private readonly IGuidGenerator _guidGenerator;

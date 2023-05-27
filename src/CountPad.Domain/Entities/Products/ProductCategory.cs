@@ -7,7 +7,7 @@ using CountPad.Domain.Common.BaseEntities;
 
 namespace CountPad.Domain.Entities.Products
 {
-    public class ProductCategory : BaseAuditableEntity
+	public class ProductCategory : BaseAuditableEntity
 	{
 		public string Name { get; set; }
 		public string Description { get; set; }

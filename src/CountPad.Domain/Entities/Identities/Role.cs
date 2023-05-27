@@ -9,7 +9,7 @@ using CountPad.Domain.Entities.Users;
 
 namespace CountPad.Domain.Entities.Identities
 {
-    public class Role : BaseAuditableEntity
+	public class Role : BaseAuditableEntity
 	{
 		public string RoleName { get; set; }
 

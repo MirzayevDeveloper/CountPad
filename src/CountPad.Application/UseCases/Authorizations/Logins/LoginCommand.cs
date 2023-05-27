@@ -8,123 +8,123 @@ using CountPad.Domain.Common.Security;
 using CountPad.Domain.Entities.Tokens;
 using CountPad.Domain.Entities.Users;
 using MediatR;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 
 namespace CountPad.Application.UseCases.Authorizations.Logins
 {
-    public class LoginCommand : IRequest<UserToken>
-    {
-        public string Phone { get; set; }
-        public string Password { get; set; }
-    }
+	public class LoginCommand : IRequest<UserToken>
+	{
+		public string Phone { get; set; }
+		public string Password { get; set; }
+	}
 
-    public class LoginCommandHandler : IRequestHandler<LoginCommand, UserToken>
-    {
-        private readonly IApplicationDbContext _context;
-        private readonly ISecurityService _securityService;
-        private readonly TokenConfiguration _tokenConfiguration;
+	public class LoginCommandHandler : IRequestHandler<LoginCommand, UserToken>
+	{
+		private readonly IApplicationDbContext _context;
+		private readonly ISecurityService _securityService;
+		private readonly TokenConfiguration _tokenConfiguration;
 
-        public LoginCommandHandler(
-            IApplicationDbContext context,
-            ISecurityService securityService,
-            IConfiguration configuration)
-        {
-            _context = context;
-            _securityService = securityService;
-            _tokenConfiguration = new TokenConfiguration();
-            configuration.Bind("Jwt", _tokenConfiguration);
-        }
+		public LoginCommandHandler(
+			IApplicationDbContext context,
+			ISecurityService securityService,
+			IConfiguration configuration)
+		{
+			_context = context;
+			_datetime = DateTime.Now;
+			_securityService = securityService;
 
-        public DateTime CurrentDateTime => DateTime.UtcNow;
+			_tokenConfiguration = new TokenConfiguration();
+			configuration.Bind("Jwt", _tokenConfiguration);
+		}
 
-        public async Task<UserToken> Handle(LoginCommand request, CancellationToken cancellationToken)
-        {
-            User maybeUser = GetUserByCredentials(request);
+		private DateTimeOffset _datetime;
+		private DateTimeOffset CurrentDateTime => _datetime;
 
-            UserRefreshToken refreshToken = GetUserRefreshTokenByPhoneNumber(maybeUser.Phone);
+		public async Task<UserToken> Handle(LoginCommand request, CancellationToken cancellationToken)
+		{
+			User maybeUser = GetUserByCredentials(request);
 
-            UserToken userToken = CreateUserToken(maybeUser);
+			UserRefreshToken refreshToken = GetUserRefreshTokenByPhoneNumber(maybeUser.Phone);
 
-            refreshToken = refreshToken is null ? UserCreateRefreshToken(maybeUser, userToken)
-                                                : UpdateUserRefreshToken(refreshToken, userToken);
+			UserToken userToken = CreateUserToken(maybeUser);
 
-            await _context.SaveChangesAsync(cancellationToken);
+			refreshToken = refreshToken is null ? UserCreateRefreshToken(maybeUser, userToken)
+												: UpdateUserRefreshToken(refreshToken, userToken);
 
-            return userToken;
-        }
+			await _context.SaveChangesAsync(cancellationToken);
 
-        private UserRefreshToken UpdateUserRefreshToken(UserRefreshToken refreshToken, UserToken userToken)
-        {
-            DateTime accessTokenExpires =
-                CurrentDateTime.AddMinutes(_tokenConfiguration.AccessTokenExpires);
+			return userToken;
+		}
 
-            refreshToken.AccessTokenExpiredDateTime = accessTokenExpires;
+		private UserRefreshToken UpdateUserRefreshToken(UserRefreshToken refreshToken, UserToken userToken)
+		{
+			DateTimeOffset accessTokenExpires =
+				CurrentDateTime.AddMinutes(_tokenConfiguration.AccessTokenExpires);
 
-            refreshToken.RefreshToken = userToken.RefreshToken;
+			refreshToken.AccessTokenExpiredDateTime = accessTokenExpires;
 
-            return _context.RefreshTokens.Update(refreshToken).Entity;
-        }
+			refreshToken.RefreshToken = userToken.RefreshToken;
 
-        private UserRefreshToken UserCreateRefreshToken(User maybeUser, UserToken userToken)
-        {
-            DateTime currentDateTime = CurrentDateTime;
+			return _context.RefreshTokens.Update(refreshToken).Entity;
+		}
 
-            DateTime accessTokenExpires =
-                currentDateTime.AddMinutes(_tokenConfiguration.AccessTokenExpires);
+		private UserRefreshToken UserCreateRefreshToken(User maybeUser, UserToken userToken)
+		{
+			DateTimeOffset accessTokenExpires =
+				CurrentDateTime.AddMinutes(_tokenConfiguration.AccessTokenExpires);
 
-            DateTime refreshTokenExpires =
-                currentDateTime.AddMinutes(_tokenConfiguration.RefreshTokenExpires);
+			DateTimeOffset refreshTokenExpires =
+				CurrentDateTime.AddMinutes(_tokenConfiguration.RefreshTokenExpires);
 
-            var refreshToken = new UserRefreshToken
-            {
-                Id = Guid.NewGuid(),
-                Phone = maybeUser.Phone,
-                RefreshToken = userToken.RefreshToken,
-                AccessTokenExpiredDateTime = accessTokenExpires,
-                RefreshTokenExpiredDateTime = refreshTokenExpires
-            };
+			var refreshToken = new UserRefreshToken
+			{
+				Id = Guid.NewGuid(),
+				Phone = maybeUser.Phone,
+				RefreshToken = userToken.RefreshToken,
+				AccessTokenExpiredDateTime = accessTokenExpires,
+				RefreshTokenExpiredDateTime = refreshTokenExpires
+			};
 
-            return _context.RefreshTokens.Add(refreshToken).Entity;
-        }
+			return _context.RefreshTokens.Add(refreshToken).Entity;
+		}
 
-        private UserToken CreateUserToken(User maybeUser)
-        {
-            string token = _securityService.GenerateJWT(maybeUser);
-            string refreshToken = _securityService.GenerateRefreshToken();
+		private UserToken CreateUserToken(User maybeUser)
+		{
+			string token = _securityService.GenerateJWT(maybeUser);
+			string refreshToken = _securityService.GenerateRefreshToken();
 
-            return new()
-            {
-                Id = maybeUser.Id,
-                AccessToken = token,
-                RefreshToken = refreshToken,
-            };
-        }
+			return new()
+			{
+				Id = maybeUser.Id,
+				AccessToken = token,
+				RefreshToken = refreshToken,
+			};
+		}
 
-        private UserRefreshToken GetUserRefreshTokenByPhoneNumber(string phone)
-        {
-            return _context.RefreshTokens.SingleOrDefault(r => r.Phone.Equals(phone));
-        }
+		private UserRefreshToken GetUserRefreshTokenByPhoneNumber(string phone)
+		{
+			return _context.RefreshTokens.SingleOrDefault(r => r.Phone.Equals(phone));
+		}
 
-        private User GetUserByCredentials(LoginCommand request)
-        {
-            User maybeUser = _context.Users
-                .ToList().First(u => u.Phone.Equals(request.Phone));
+		private User GetUserByCredentials(LoginCommand request)
+		{
+			User maybeUser = _context.Users
+				.ToList().First(u => u.Phone.Equals(request.Phone));
 
-            if (maybeUser is null)
-            {
-                throw new NotFoundException(nameof(LoginCommand.Phone), request.Phone);
-            }
+			if (maybeUser is null)
+			{
+				throw new NotFoundException(nameof(LoginCommand.Phone), request.Phone);
+			}
 
-            string hashedPassword =
-                _securityService.GetHash(request.Password);
+			string hashedPassword =
+				_securityService.GetHash(request.Password);
 
-            if (maybeUser.Password != hashedPassword)
-            {
-                throw new NotFoundException("Incorrect Password");
-            }
+			if (maybeUser.Password != hashedPassword)
+			{
+				throw new NotFoundException("Incorrect Password");
+			}
 
-            return maybeUser;
-        }
-    }
+			return maybeUser;
+		}
+	}
 }

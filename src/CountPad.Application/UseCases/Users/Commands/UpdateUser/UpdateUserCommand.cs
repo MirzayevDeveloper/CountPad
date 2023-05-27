@@ -18,7 +18,7 @@ namespace CountPad.Application.UseCases.Users.Commands.UpdateUser
 		public Guid Id { get; set; }
 		public string Name { get; set; }
 		public string Phone { get; set; }
-		public string OldPassword { get; set; }
+		public string CurrentPassword { get; set; }
 		public string Password { get; set; }
 		public string ConfirmPassword { get; set; }
 
@@ -49,7 +49,7 @@ namespace CountPad.Application.UseCases.Users.Commands.UpdateUser
 			ValidateUserIsNotNull(request, maybeUser);
 
 			string hashedRequestPassword =
-				_securityService.GetHash(request.OldPassword);
+				_securityService.GetHash(request.CurrentPassword);
 
 			ValidatePasswordIsCorrect(maybeUser, hashedRequestPassword);
 
@@ -78,7 +78,7 @@ namespace CountPad.Application.UseCases.Users.Commands.UpdateUser
 			if (hashedRequestPassword != maybeUser.Password)
 			{
 				throw new ValidationException(
-					nameof(UpdateUserCommand.OldPassword), "Old Password is incorrect.");
+					nameof(UpdateUserCommand.CurrentPassword), "Old Password is incorrect.");
 			}
 		}
 

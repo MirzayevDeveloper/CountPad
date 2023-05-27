@@ -57,6 +57,23 @@ namespace CountPad.Infrastructure.Persistence.Migrations
 				});
 
 			migrationBuilder.CreateTable(
+				name: "RefreshTokens",
+				columns: table => new
+				{
+					Id = table.Column<Guid>(type: "uuid", nullable: false),
+					Phone = table.Column<string>(type: "text", nullable: true),
+					RefreshToken = table.Column<string>(type: "text", nullable: true),
+					AccessTokenExpiredDateTime = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+					RefreshTokenExpiredDateTime = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+					CreatedDate = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false),
+					UpdatedDate = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false)
+				},
+				constraints: table =>
+				{
+					table.PrimaryKey("PK_RefreshTokens", x => x.Id);
+				});
+
+			migrationBuilder.CreateTable(
 				name: "Roles",
 				columns: table => new
 				{
@@ -138,17 +155,17 @@ namespace CountPad.Infrastructure.Persistence.Migrations
 				name: "RoleUser",
 				columns: table => new
 				{
-					UserRolesId = table.Column<Guid>(type: "uuid", nullable: false),
+					RolesId = table.Column<Guid>(type: "uuid", nullable: false),
 					UsersId = table.Column<Guid>(type: "uuid", nullable: false),
 					CreatedDate = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false),
 					UpdatedDate = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false)
 				},
 				constraints: table =>
 				{
-					table.PrimaryKey("PK_RoleUser", x => new { x.UserRolesId, x.UsersId });
+					table.PrimaryKey("PK_RoleUser", x => new { x.RolesId, x.UsersId });
 					table.ForeignKey(
-						name: "FK_RoleUser_Roles_UserRolesId",
-						column: x => x.UserRolesId,
+						name: "FK_RoleUser_Roles_RolesId",
+						column: x => x.RolesId,
 						principalTable: "Roles",
 						principalColumn: "Id",
 						onDelete: ReferentialAction.Cascade);
@@ -306,6 +323,9 @@ namespace CountPad.Infrastructure.Persistence.Migrations
 
 			migrationBuilder.DropTable(
 				name: "PermissionRole");
+
+			migrationBuilder.DropTable(
+				name: "RefreshTokens");
 
 			migrationBuilder.DropTable(
 				name: "RoleUser");
