@@ -39,7 +39,7 @@ namespace CountPad.Api.Controllers
 			return await Mediator.Send(command);
 		}
 
-		[HttpDelete]
+		[HttpDelete("{roleId}")]
 		public async ValueTask<ActionResult<RoleDto>> DeleteRoleAsync(Guid roleId)
 		{
 			return await Mediator.Send(new DeleteRoleCommand(roleId));

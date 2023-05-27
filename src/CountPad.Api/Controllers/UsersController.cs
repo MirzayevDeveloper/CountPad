@@ -39,7 +39,7 @@ namespace CountPad.Api.Controllers
 			return await Mediator.Send(command);
 		}
 
-		[HttpDelete("userId")]
+		[HttpDelete("{userId}")]
 		public async ValueTask<ActionResult<UserDto>> DeleteUserAsync(Guid userId)
 		{
 			return await Mediator.Send(new DeleteUserCommand(userId));

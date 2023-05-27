@@ -24,7 +24,6 @@ namespace CountPad.Application.UseCases.Permissions.Commands.CreatePermission
 	{
 		private readonly IApplicationDbContext _context;
 		private readonly IMapper _mapper;
-		private readonly IDateTime dateTime;
 
 		public CreatePermissionCommandHandler(
 			IApplicationDbContext context,

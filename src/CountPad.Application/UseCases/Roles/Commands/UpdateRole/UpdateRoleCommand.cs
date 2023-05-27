@@ -14,8 +14,16 @@ namespace CountPad.Application.UseCases.Roles.Commands.UpdateRole
 {
 	public class UpdateRoleCommand : IRequest<RoleDto>
 	{
+		private string _roleName;
+
 		public Guid Id { get; set; }
-		public string RoleName { get; set; }
+
+		public string RoleName
+		{
+			get { return _roleName; }
+			set { _roleName = value.ToLower(); }
+		}
+
 		public ICollection<Guid> Permissions { get; set; }
 	}
 

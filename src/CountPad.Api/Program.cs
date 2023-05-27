@@ -1,8 +1,14 @@
 using CountPad.Application;
 using CountPad.Infrastructure;
+using Serilog;
 
-var builder = WebApplication.CreateBuilder(args);
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+var builder = WebApplication.CreateBuilder(args);
+
+Log.Logger = new LoggerConfiguration()
+				.Enrich.FromLogContext()
+				.ReadFrom.Configuration(builder.Configuration)
+				.CreateLogger();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

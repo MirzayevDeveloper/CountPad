@@ -12,8 +12,15 @@ namespace CountPad.Application.UseCases.Permissions.Commands.UpdatePermission
 {
 	public class UpdatePermissionCommand : IRequest<PermissionDto>
 	{
+		private string _permissionName;
+
 		public Guid Id { get; set; }
-		public string PermissionName { get; set; }
+
+		public string PermissionName
+		{
+			get { return _permissionName; }
+			set { _permissionName = value.ToLower(); }
+		}
 	}
 
 	public class UpdatePermissionCommandHandler : IRequestHandler<UpdatePermissionCommand, PermissionDto>

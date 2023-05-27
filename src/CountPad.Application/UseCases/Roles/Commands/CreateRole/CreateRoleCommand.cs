@@ -14,7 +14,13 @@ namespace CountPad.Application.UseCases.Roles.Commands.CreateRole
 {
 	public class CreateRoleCommand : IRequest<RoleDto>
 	{
-		public string RoleName { get; set; }
+		private string _roleName;
+
+		public string RoleName
+		{
+			get { return _roleName; }
+			set { _roleName = value.ToLower(); }
+		}
 
 		public ICollection<Guid> Permissions { get; set; }
 	}
