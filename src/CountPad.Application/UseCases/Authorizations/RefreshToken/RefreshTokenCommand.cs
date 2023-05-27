@@ -50,7 +50,7 @@ namespace CountPad.Application.UseCases.Authorizations.RefreshToken
 			User maybeUser = await _context.Users
 				.FindAsync(new object[] { request.Id }, cancellationToken);
 
-			if(maybeUser == null) return null;
+			if (maybeUser == null) return null;
 
 			UserRefreshToken maybeRefreshToken =
 				 _context.RefreshTokens.SingleOrDefault(r => r.Phone.Equals(maybeUser.Phone));

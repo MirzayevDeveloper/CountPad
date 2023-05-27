@@ -1,5 +1,4 @@
 ﻿using CountPad.Application.Common.Models;
-using CountPad.Domain.Entities.Products;
 
 namespace CountPad.Application.UseCases.ProductCategories.Models
 {
