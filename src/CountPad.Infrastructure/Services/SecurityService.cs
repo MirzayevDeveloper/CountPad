@@ -69,14 +69,14 @@ namespace CountPad.Infrastructure.Services
 
 		public string GenerateRefreshToken()
 		{
-			string key = HashToken(_tokenConfiguration.Key);
-			string dateTime = HashToken(DateTime.UtcNow.ToString());
+			string key = GetHash(_tokenConfiguration.Key);
+			string dateTime = GetHash(DateTime.UtcNow.ToString());
 			string refreshToken = key + dateTime;
 
 			return refreshToken;
 		}
 
-		public string HashToken(string password)
+		public string GetHash(string password)
 		{
 			using (SHA256 sha256 = SHA256.Create())
 			{

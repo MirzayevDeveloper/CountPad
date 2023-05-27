@@ -13,6 +13,14 @@ namespace CountPad.Application.Common.Exceptions
 			Errors = new Dictionary<string, string[]>();
 		}
 
+		public ValidationException(string name, string message)
+		{
+			Errors = new Dictionary<string, string[]>
+			{
+				{ name, new string[] { message } }
+			};
+		}
+
 		public ValidationException(IEnumerable<ValidationFailure> failures)
 		{
 			Errors = failures

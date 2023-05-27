@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using CountPad.Domain.Entities.Users;
+﻿using CountPad.Domain.Entities.Users;
 
 namespace CountPad.Application.Common.Interfaces
 {
@@ -7,6 +6,6 @@ namespace CountPad.Application.Common.Interfaces
 	{
 		string GenerateJWT(User user);
 		string GenerateRefreshToken();
-		string HashToken(string password);
+		string GetHash(string password);
 	}
 }

@@ -25,14 +25,17 @@ namespace CountPad.Application.UseCases.Users.Commands.CreateUser
 	public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, UserDto>
 	{
 		private readonly IApplicationDbContext _context;
+		private readonly ISecurityService _securityService;
 		private readonly IMapper _mapper;
 
 		public CreateUserCommandHandler(
 			IApplicationDbContext context,
+			ISecurityService securityService,
 			IMapper mapper)
 		{
-			_context = context;
 			_mapper = mapper;
+			_context = context;
+			_securityService = securityService;
 		}
 
 		public async Task<UserDto> Handle(CreateUserCommand request, CancellationToken cancellationToken)
@@ -49,11 +52,13 @@ namespace CountPad.Application.UseCases.Users.Commands.CreateUser
 			List<Role> roles = _context.Roles
 				.Where(r => request.Roles.Contains(r.Id)).ToList();
 
+			string hashedPassword = _securityService.GetHash(request.Password);
+
 			var user = new User
 			{
 				Name = request.Name,
 				Phone = request.Phone,
-				Password = request.Password,
+				Password = hashedPassword,
 				Roles = roles,
 			};
 

@@ -18,6 +18,7 @@ namespace CountPad.Application.UseCases.Users.Commands.UpdateUser
 		public Guid Id { get; set; }
 		public string Name { get; set; }
 		public string Phone { get; set; }
+		public string OldPassword { get; set; }
 		public string Password { get; set; }
 		public string ConfirmPassword { get; set; }
 
@@ -26,15 +27,18 @@ namespace CountPad.Application.UseCases.Users.Commands.UpdateUser
 
 	public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, UserDto>
 	{
-		private readonly IApplicationDbContext _context;
 		private readonly IMapper _mapper;
+		private readonly IApplicationDbContext _context;
+		private readonly ISecurityService _securityService;
 
 		public UpdateUserCommandHandler(
+			IMapper mapper,
 			IApplicationDbContext context,
-			IMapper mapper)
+			ISecurityService securityService)
 		{
-			_context = context;
 			_mapper = mapper;
+			_context = context;
+			_securityService = securityService;
 		}
 
 		public async Task<UserDto> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
@@ -43,6 +47,11 @@ namespace CountPad.Application.UseCases.Users.Commands.UpdateUser
 				.FindAsync(new object[] { request.Id }, cancellationToken);
 
 			ValidateUserIsNotNull(request, maybeUser);
+
+			string hashedRequestPassword =
+				_securityService.GetHash(request.OldPassword);
+
+			ValidatePasswordIsCorrect(maybeUser, hashedRequestPassword);
 
 			bool areAllExist = request.Roles.All(
 				x => _context.Roles.Any(p => p.Id.Equals(x)));
@@ -53,7 +62,7 @@ namespace CountPad.Application.UseCases.Users.Commands.UpdateUser
 				.Where(r => request.Roles.Contains(r.Id)).ToList();
 
 			maybeUser.Phone = request.Phone;
-			maybeUser.Password = request.Password;
+			maybeUser.Password = hashedRequestPassword;
 			maybeUser.Roles = roles;
 			maybeUser.Name = request.Name;
 
@@ -62,6 +71,15 @@ namespace CountPad.Application.UseCases.Users.Commands.UpdateUser
 			await _context.SaveChangesAsync(cancellationToken);
 
 			return _mapper.Map<UserDto>(maybeUser);
+		}
+
+		private static void ValidatePasswordIsCorrect(User maybeUser, string hashedRequestPassword)
+		{
+			if (hashedRequestPassword != maybeUser.Password)
+			{
+				throw new ValidationException(
+					nameof(UpdateUserCommand.OldPassword), "Old Password is incorrect.");
+			}
 		}
 
 		private static void ValidateUserIsNotNull(UpdateUserCommand request, User maybeUser)
