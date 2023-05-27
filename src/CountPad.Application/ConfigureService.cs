@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using CountPad.Application.Common.Behaviours;
+using CountPad.Application.Common.Interfaces;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;

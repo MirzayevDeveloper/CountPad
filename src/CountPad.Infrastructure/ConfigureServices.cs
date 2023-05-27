@@ -18,9 +18,11 @@ namespace CountPad.Infrastructure
 			});
 
 			services.AddScoped<AuditableEntitySaveChangesInterceptor>();
+			services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
+
 			services.AddTransient<IDateTime, DateTimeService>();
 			services.AddTransient<IGuidGenerator, GuidGeneratorService>();
-			services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
+			services.AddTransient<ISecurityService, SecurityService>();
 
 			return services;
 		}
