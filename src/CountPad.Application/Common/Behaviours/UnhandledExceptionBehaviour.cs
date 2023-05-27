@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using Microsoft.Extensions.Logging;
 using Serilog;
 
 namespace CountPad.Application.Common.Behaviours
@@ -22,7 +18,7 @@ namespace CountPad.Application.Common.Behaviours
 			{
 				var requestName = typeof(TRequest).Name;
 
-				Log.Error(ex, "CountPad Request: Unhandled Exception for Request {Name} {@Request}", requestName, request);
+				Log.Error(ex, $"CountPad Request: Unhandled Exception for Request {requestName} {request}\n");
 
 				throw;
 			}

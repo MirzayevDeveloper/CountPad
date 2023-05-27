@@ -41,7 +41,7 @@ namespace CountPad.Application.UseCases.Roles.Commands.CreateRole
 		public async Task<RoleDto> Handle(CreateRoleCommand request, CancellationToken cancellationToken)
 		{
 			Role maybeRole = _context.Roles
-				.SingleOrDefault(r => r.RoleName.Equals(request));
+				.SingleOrDefault(r => r.RoleName.Equals(request.RoleName));
 
 			ValidateRoleIsNotExists(request, maybeRole);
 
@@ -76,7 +76,7 @@ namespace CountPad.Application.UseCases.Roles.Commands.CreateRole
 
 		private static void ValidateRoleIsNotExists(CreateRoleCommand request, Role maybeRole)
 		{
-			if (maybeRole is not null)
+			if (maybeRole != null)
 			{
 				throw new AlreadyExistsException(nameof(maybeRole), request.RoleName);
 			}

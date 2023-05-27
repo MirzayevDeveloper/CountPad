@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CountPad.Application.Common.Models
+﻿namespace CountPad.Application.Common.Models
 {
 	public abstract class BaseAuditableEntityDto : BaseEntityDto
 	{
