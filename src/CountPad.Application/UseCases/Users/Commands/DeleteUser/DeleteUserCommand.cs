@@ -34,6 +34,8 @@ namespace CountPad.Application.UseCases.Users.Commands.DeleteUser
 
 			maybeUser = _context.Users.Remove(maybeUser).Entity;
 
+			await _context.SaveChangesAsync(cancellationToken);
+
 			return _mapper.Map<UserDto>(maybeUser);
 		}
 

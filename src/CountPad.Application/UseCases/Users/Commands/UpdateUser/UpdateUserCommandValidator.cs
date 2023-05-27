@@ -13,7 +13,7 @@ namespace CountPad.Application.UseCases.Users.Commands.UpdateUser
 
 			RuleFor(u => u.Phone)
 				.Must(ValidatePhone)
-				.Length(12).WithMessage("Please enter valid phone number like +998901234567");
+				.Length(13).WithMessage("Please enter valid phone number like +998901234567");
 
 			RuleFor(u => u.Password)
 				.Matches(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,}$")
