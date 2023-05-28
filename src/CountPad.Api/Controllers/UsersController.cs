@@ -18,13 +18,13 @@ namespace CountPad.Api.Controllers
 			return await Mediator.Send(command);
 		}
 
-		[HttpGet("{userId}"), Authorize(Roles = "getuser"), AllowAnonymous]
+		[HttpGet("{userId}"), Authorize(Roles = "getuser")]
 		public async ValueTask<ActionResult<UserDto>> GetUserAsync(Guid userId)
 		{
 			return await Mediator.Send(new GetUserQuery(userId));
 		}
 
-		[HttpGet, Authorize(Roles = "getallusers")]
+		[HttpGet] //, Authorize(Roles = "getallusers")
 		public async ValueTask<ActionResult<UserDto[]>> GetAllUsersAsync()
 		{
 			return await Mediator.Send(new GetUsersQuery());
