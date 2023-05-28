@@ -14,7 +14,7 @@ namespace CountPad.Domain.Entities.Packages
 		public Double Count { get; set; }
 		public Decimal IncomingPrice { get; set; }
 		public Decimal SalePrice { get; set; }
-		public DateTime IncomingDate { get; set; }
+		public DateTimeOffset IncomingDate { get; set; }
 
 		public Guid ProductId { get; set; }
 		public Product Product { get; set; }
