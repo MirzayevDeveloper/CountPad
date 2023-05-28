@@ -22,12 +22,12 @@ namespace CountPad.Application.Common.Models
 			Result = result;
 		}
 
-        public Response()
-        {
-            
-        }
+		public Response()
+		{
 
-        public HttpStatusCode HttpStatus { get; set; }
+		}
+
+		public HttpStatusCode HttpStatus { get; set; }
 		public T Result { get; set; }
 		public object Errors { get; set; }
 	}

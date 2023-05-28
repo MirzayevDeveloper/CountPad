@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Linq;
-using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using CountPad.Application.Common.Exceptions;
 using CountPad.Application.Common.Interfaces;
-using CountPad.Application.Common.Models;
 using CountPad.Application.UseCases.Products.Models;
 using CountPad.Domain.Entities.Products;
 using MediatR;

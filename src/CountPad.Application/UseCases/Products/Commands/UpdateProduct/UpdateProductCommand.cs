@@ -7,7 +7,6 @@ using CountPad.Application.Common.Interfaces;
 using CountPad.Application.UseCases.Products.Models;
 using CountPad.Domain.Entities.Products;
 using MediatR;
-using Microsoft.AspNetCore.Routing.Matching;
 
 namespace CountPad.Application.UseCases.Products.Commands.UpdateProduct
 {
