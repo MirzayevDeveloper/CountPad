@@ -6,7 +6,7 @@
 using System;
 using CountPad.Domain.Common.BaseEntities;
 using CountPad.Domain.Entities.Packages;
-using CountPad.Domain.Entities.Solds;
+using CountPad.Domain.Entities.Users;
 
 namespace CountPad.Domain.Entities.Orders
 {
@@ -15,7 +15,11 @@ namespace CountPad.Domain.Entities.Orders
 		public Guid PackageId { get; set; }
 		public Package Package { get; set; }
 
-		public Guid SoldId { get; set; }
-		public Sold Sold { get; set; }
+		public Guid UserId { get; set; }
+		public User User { get; set; }
+
+		public double Count { get; set; }
+		public double SoldPrice { get; set; }
+		public DateTimeOffset SoldDate { get; set; }
 	}
 }

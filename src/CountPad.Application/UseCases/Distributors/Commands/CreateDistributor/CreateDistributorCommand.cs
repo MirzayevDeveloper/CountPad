@@ -7,7 +7,6 @@ using CountPad.Application.Common.Interfaces;
 using CountPad.Application.UseCases.Distributors.Models;
 using CountPad.Domain.Entities;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 
 namespace CountPad.Application.UseCases.Distributors.Commands.CreateDistributor
 {

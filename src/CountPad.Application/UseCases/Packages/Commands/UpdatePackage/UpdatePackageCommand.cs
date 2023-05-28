@@ -1,25 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using CountPad.Application.Common.Exceptions;
 using CountPad.Application.Common.Interfaces;
 using CountPad.Application.UseCases.Packages.Models;
-using CountPad.Domain.Entities.Products;
 using CountPad.Domain.Entities;
-using MediatR;
-using CountPad.Application.Common.Exceptions;
-using CountPad.Application.UseCases.Packages.Commands.CreatePackage;
 using CountPad.Domain.Entities.Packages;
+using CountPad.Domain.Entities.Products;
+using MediatR;
 
 namespace CountPad.Application.UseCases.Packages.Commands.UpdatePackage
 {
 	public class UpdatePackageCommand : IRequest<PackageDto>
 	{
-        public Guid Id { get; set; }
-        public Guid ProductId { get; set; }
+		public Guid Id { get; set; }
+		public Guid ProductId { get; set; }
 		public Double Count { get; set; }
 		public Decimal IncomingPrice { get; set; }
 		public Decimal SalePrice { get; set; }

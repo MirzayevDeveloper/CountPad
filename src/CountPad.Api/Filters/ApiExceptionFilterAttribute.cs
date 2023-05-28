@@ -1,5 +1,4 @@
-﻿using System;
-using CountPad.Application.Common.Exceptions;
+﻿using CountPad.Application.Common.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 

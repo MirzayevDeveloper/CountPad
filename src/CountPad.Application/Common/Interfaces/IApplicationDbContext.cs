@@ -8,7 +8,6 @@ using CountPad.Domain.Entities.Identities;
 using CountPad.Domain.Entities.Orders;
 using CountPad.Domain.Entities.Packages;
 using CountPad.Domain.Entities.Products;
-using CountPad.Domain.Entities.Solds;
 using CountPad.Domain.Entities.Tokens;
 using CountPad.Domain.Entities.Users;
 using Microsoft.EntityFrameworkCore;
@@ -24,7 +23,6 @@ namespace CountPad.Application.Common.Interfaces
 		DbSet<ProductCategory> ProductCategories { get; }
 		DbSet<Role> Roles { get; }
 		DbSet<Permission> Permissions { get; }
-		DbSet<Sold> Solds { get; }
 		DbSet<User> Users { get; }
 		DbSet<UserRefreshToken> RefreshTokens { get; }
 

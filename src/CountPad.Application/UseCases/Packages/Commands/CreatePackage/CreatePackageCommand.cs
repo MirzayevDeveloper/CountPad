@@ -1,17 +1,15 @@
-﻿using CountPad.Application.UseCases.Distributors.Models;
-using System;
-using CountPad.Application.UseCases.Packages.Models;
-using CountPad.Application.UseCases.Products.Models;
-using MediatR;
-using System.Threading.Tasks;
-using System.Threading;
-using CountPad.Application.Common.Interfaces;
-using AutoMapper;
+﻿using System;
 using System.Linq;
-using CountPad.Domain.Entities;
-using CountPad.Domain.Entities.Products;
+using System.Threading;
+using System.Threading.Tasks;
+using AutoMapper;
 using CountPad.Application.Common.Exceptions;
+using CountPad.Application.Common.Interfaces;
+using CountPad.Application.UseCases.Packages.Models;
+using CountPad.Domain.Entities;
 using CountPad.Domain.Entities.Packages;
+using CountPad.Domain.Entities.Products;
+using MediatR;
 
 namespace CountPad.Application.UseCases.Packages.Commands.CreatePackage
 {
@@ -66,11 +64,11 @@ namespace CountPad.Application.UseCases.Packages.Commands.CreatePackage
 
 		private void ValidateProductAndDistributorAreNotNull(Distributor maybeDistributor, Product maybeProduct, CreatePackageCommand request)
 		{
-			if(maybeDistributor is null)
+			if (maybeDistributor is null)
 			{
 				throw new NotFoundException(nameof(Distributor), request.DistributorId);
 			}
-			else if(maybeProduct is null)
+			else if (maybeProduct is null)
 			{
 				throw new NotFoundException(nameof(Product), request.ProductId);
 			}
