@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using CountPad.Application.UseCases.Distributors.Models;
-using CountPad.Application.UseCases.Permissions.Commands.UpdatePermission;
 using CountPad.Application.UseCases.Permissions.Models;
 using CountPad.Application.UseCases.ProductCategories.Models;
 using CountPad.Application.UseCases.Products.Models;

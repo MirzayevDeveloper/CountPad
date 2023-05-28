@@ -1,5 +1,4 @@
-﻿using CountPad.Application.Common.Models;
-using CountPad.Application.UseCases.ProductCategories.Commands.CreateProductCategory;
+﻿using CountPad.Application.UseCases.ProductCategories.Commands.CreateProductCategory;
 using CountPad.Application.UseCases.ProductCategories.Commands.DeleteProductCategory;
 using CountPad.Application.UseCases.ProductCategories.Commands.UpdateProductCategory;
 using CountPad.Application.UseCases.ProductCategories.Models;
@@ -34,7 +33,7 @@ namespace CountPad.Api.Controllers
 		[HttpPut, Authorize(Roles = "updateproductcategory")]
 		public async ValueTask<ActionResult<ProductCategoryDto>> PutProductCategoryAsync(Guid categoryId, UpdateProductCategoryCommand command)
 		{
-			if(categoryId != command.Id)
+			if (categoryId != command.Id)
 			{
 				return BadRequest();
 			}

@@ -10,7 +10,7 @@ using MediatR;
 
 namespace CountPad.Application.UseCases.Distributors.Commands.CreateDistributor
 {
-    public class CreateDistributorCommand : IRequest<DistributorDto>
+	public class CreateDistributorCommand : IRequest<DistributorDto>
 	{
 		private string _name;
 		public string Name

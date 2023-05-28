@@ -10,7 +10,7 @@ using MediatR;
 
 namespace CountPad.Application.UseCases.Distributors.Commands.UpdateDistributor
 {
-    public class UpdateDistributorCommand : IRequest<DistributorDto>
+	public class UpdateDistributorCommand : IRequest<DistributorDto>
 	{
 		public Guid Id { get; set; }
 		public string Name { get; set; }
