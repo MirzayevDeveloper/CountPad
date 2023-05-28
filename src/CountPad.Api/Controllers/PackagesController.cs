@@ -4,6 +4,7 @@ using CountPad.Application.UseCases.Packages.Commands.DeletePackage;
 using CountPad.Application.UseCases.Packages.Commands.UpdatePackage;
 using CountPad.Application.UseCases.Packages.Models;
 using CountPad.Application.UseCases.Packages.Queries.GetPackage;
+using CountPad.Application.UseCases.Packages.Queries.GetProductsWithPagination;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,11 +30,11 @@ namespace CountPad.Api.Controllers
 			return await Mediator.Send(new GetPackagesQuery());
 		}
 
-		//[HttpGet("pagination"), Authorize(Roles = "getpackageswithpagination")]
-		//public async ValueTask<ActionResult<PaginatedList<PackageDto>>> GetPackagesWithPaginated([FromQuery] GetPackagesWithPaginationQuery query)
-		//{
-		//	return await Mediator.Send(query);
-		//}
+		[HttpGet("pagination"), Authorize(Roles = "getpackageswithpagination")]
+		public async ValueTask<ActionResult<PaginatedList<PackageDto>>> GetPackagesWithPaginated([FromQuery] GetPackagesWithPaginationQuery query)
+		{
+			return await Mediator.Send(query);
+		}
 
 		[HttpPut, Authorize(Roles = "updatepackage")]
 		public async ValueTask<ActionResult<PackageDto>> PutPackageAsync(UpdatePackageCommand command)

@@ -1,0 +1,415 @@
+2023-05-27T09:02:40.5797936+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request CreateRoleCommand CountPad.Application.UseCases.Roles.Commands.CreateRole.CreateRoleCommand
+CountPad.Application.Common.Exceptions.AlreadyExistsException: Entity "maybeRole" (user) already exists.
+   at CountPad.Application.UseCases.Roles.Commands.CreateRole.CreateRoleCommandHandler.ValidateRoleIsNotExists(CreateRoleCommand request, Role maybeRole) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Roles\Commands\CreateRole\CreateRoleCommand.cs:line 81
+   at CountPad.Application.UseCases.Roles.Commands.CreateRole.CreateRoleCommandHandler.Handle(CreateRoleCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Roles\Commands\CreateRole\CreateRoleCommand.cs:line 46
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 19
+2023-05-27T09:05:00.4726703+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request CreateRoleCommand CountPad.Application.UseCases.Roles.Commands.CreateRole.CreateRoleCommand
+CountPad.Application.Common.Exceptions.AlreadyExistsException: Entity "maybeRole" (user) already exists.
+   at CountPad.Application.UseCases.Roles.Commands.CreateRole.CreateRoleCommandHandler.ValidateRoleIsNotExists(CreateRoleCommand request, Role maybeRole) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Roles\Commands\CreateRole\CreateRoleCommand.cs:line 81
+   at CountPad.Application.UseCases.Roles.Commands.CreateRole.CreateRoleCommandHandler.Handle(CreateRoleCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Roles\Commands\CreateRole\CreateRoleCommand.cs:line 46
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 19
+2023-05-27T09:05:33.0876338+05:00 [ERR] (//) asd
+2023-05-27T09:06:07.9571125+05:00 [FTL] (//) asd
+2023-05-27T09:08:17.4223067+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request CreateRoleCommand CountPad.Application.UseCases.Roles.Commands.CreateRole.CreateRoleCommand
+CountPad.Application.Common.Exceptions.AlreadyExistsException: Entity "maybeRole" (user) already exists.
+   at CountPad.Application.UseCases.Roles.Commands.CreateRole.CreateRoleCommandHandler.ValidateRoleIsNotExists(CreateRoleCommand request, Role maybeRole) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Roles\Commands\CreateRole\CreateRoleCommand.cs:line 81
+   at CountPad.Application.UseCases.Roles.Commands.CreateRole.CreateRoleCommandHandler.Handle(CreateRoleCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Roles\Commands\CreateRole\CreateRoleCommand.cs:line 46
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 19
+2023-05-27T10:14:50.2719133+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request CreateUserCommand CountPad.Application.UseCases.Users.Commands.CreateUser.CreateUserCommand
+
+CountPad.Application.Common.Exceptions.AlreadyExistsException: Entity "User" (+998901502004) already exists.
+   at CountPad.Application.UseCases.Users.Commands.CreateUser.CreateUserCommandHandler.ValidateUserNotExists(CreateUserCommand request, Boolean isExists) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Users\Commands\CreateUser\CreateUserCommand.cs:line 71
+   at CountPad.Application.UseCases.Users.Commands.CreateUser.CreateUserCommandHandler.Handle(CreateUserCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Users\Commands\CreateUser\CreateUserCommand.cs:line 42
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-27T14:10:24.2598261+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request LoginCommand CountPad.Application.UseCases.Authorizations.Logins.LoginCommand
+
+CountPad.Application.Common.Exceptions.NotFoundException: Incorrect Password
+   at CountPad.Application.UseCases.Authorizations.Logins.LoginCommandHandler.GetUserByCredentials(LoginCommand request) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\Logins\LoginCommand.cs:line 124
+   at CountPad.Application.UseCases.Authorizations.Logins.LoginCommandHandler.Handle(LoginCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\Logins\LoginCommand.cs:line 43
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-27T14:10:32.2122523+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request LoginCommand CountPad.Application.UseCases.Authorizations.Logins.LoginCommand
+
+CountPad.Application.Common.Exceptions.NotFoundException: Incorrect Password
+   at CountPad.Application.UseCases.Authorizations.Logins.LoginCommandHandler.GetUserByCredentials(LoginCommand request) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\Logins\LoginCommand.cs:line 124
+   at CountPad.Application.UseCases.Authorizations.Logins.LoginCommandHandler.Handle(LoginCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\Logins\LoginCommand.cs:line 43
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-27T14:10:34.5422902+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request LoginCommand CountPad.Application.UseCases.Authorizations.Logins.LoginCommand
+
+CountPad.Application.Common.Exceptions.NotFoundException: Incorrect Password
+   at CountPad.Application.UseCases.Authorizations.Logins.LoginCommandHandler.GetUserByCredentials(LoginCommand request) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\Logins\LoginCommand.cs:line 124
+   at CountPad.Application.UseCases.Authorizations.Logins.LoginCommandHandler.Handle(LoginCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\Logins\LoginCommand.cs:line 43
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-27T14:18:17.4475654+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request RefreshTokenCommand CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommand
+
+System.UnauthorizedAccessException: Invalid attempt!
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.ValidateRefreshToken(UserRefreshToken maybeRefreshToken, String refreshToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 137
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.Handle(RefreshTokenCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 52
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-27T14:20:21.6601071+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request RefreshTokenCommand CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommand
+
+System.UnauthorizedAccessException: Invalid attempt!
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.ValidateRefreshToken(UserRefreshToken maybeRefreshToken, String refreshToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 137
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.Handle(RefreshTokenCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 52
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-27T15:13:56.7917002+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request RefreshTokenCommand CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommand
+
+System.UnauthorizedAccessException: Invalid attempt!
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.ValidateRefreshToken(UserRefreshToken maybeRefreshToken, String refreshToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 143
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.Handle(RefreshTokenCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 58
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-27T15:14:06.1196249+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request RefreshTokenCommand CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommand
+
+System.UnauthorizedAccessException: Invalid attempt!
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.ValidateRefreshToken(UserRefreshToken maybeRefreshToken, String refreshToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 143
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.Handle(RefreshTokenCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 58
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-27T15:20:00.7359704+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request CreatePermissionCommand CountPad.Application.UseCases.Permissions.Commands.CreatePermission.CreatePermissionCommand
+
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Permissions_PermissionName"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|234_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Permissions_PermissionName"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Permissions
+    ConstraintName: IX_Permissions_PermissionName
+    File: nbtinsert.c
+    Line: 671
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at CountPad.Application.UseCases.Permissions.Commands.CreatePermission.CreatePermissionCommandHandler.Handle(CreatePermissionCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Permissions\Commands\CreatePermission\CreatePermissionCommand.cs:line 43
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-27T15:28:20.2831822+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request RefreshTokenCommand CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommand
+
+System.UnauthorizedAccessException: Invalid attempt!
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.ValidateRefreshToken(UserRefreshToken maybeRefreshToken, String refreshToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 143
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.Handle(RefreshTokenCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 58
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-27T15:28:31.4838376+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request RefreshTokenCommand CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommand
+
+System.UnauthorizedAccessException: Invalid attempt!
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.ValidateRefreshToken(UserRefreshToken maybeRefreshToken, String refreshToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 143
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.Handle(RefreshTokenCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 58
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-27T15:38:06.2079099+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request RefreshTokenCommand CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommand
+
+System.UnauthorizedAccessException: Invalid attempt!
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.ValidateRefreshToken(UserRefreshToken maybeRefreshToken, String refreshToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 143
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.Handle(RefreshTokenCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 58
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-27T15:50:59.3386372+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request RefreshTokenCommand CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommand
+
+System.InvalidOperationException: The instance of entity type 'UserRefreshToken' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.CreateRefreshToken(UserRefreshToken refreshToken, UserToken userToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 113
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.ValidateAndUpdateUserRefreshToken(UserRefreshToken refreshToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 88
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.Handle(RefreshTokenCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 62
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.Handle(RefreshTokenCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 69
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-27T15:51:39.4303757+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request RefreshTokenCommand CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommand
+
+System.UnauthorizedAccessException: Invalid attempt!
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.ValidateRefreshToken(UserRefreshToken maybeRefreshToken, String refreshToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 143
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.Handle(RefreshTokenCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 58
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-27T15:54:04.2021520+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request RefreshTokenCommand CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommand
+
+System.InvalidOperationException: The instance of entity type 'UserRefreshToken' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.CreateRefreshToken(UserRefreshToken refreshToken, UserToken userToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 113
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.ValidateAndUpdateUserRefreshToken(UserRefreshToken refreshToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 88
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.Handle(RefreshTokenCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 62
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.Handle(RefreshTokenCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 69
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-27T15:57:00.3691004+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request RefreshTokenCommand CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommand
+
+System.InvalidOperationException: The instance of entity type 'UserRefreshToken' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.CreateRefreshToken(UserRefreshToken refreshToken, UserToken userToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 113
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.ValidateAndUpdateUserRefreshToken(UserRefreshToken refreshToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 88
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.Handle(RefreshTokenCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 62
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.Handle(RefreshTokenCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 69
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-27T16:00:12.1272028+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request RefreshTokenCommand CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommand
+
+System.UnauthorizedAccessException: Invalid attempt!
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.ValidateRefreshToken(UserRefreshToken maybeRefreshToken, String refreshToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 143
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.Handle(RefreshTokenCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 58
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-27T16:00:16.9719727+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request RefreshTokenCommand CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommand
+
+System.UnauthorizedAccessException: Invalid attempt!
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.ValidateRefreshToken(UserRefreshToken maybeRefreshToken, String refreshToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 143
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.Handle(RefreshTokenCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 58
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-27T16:03:27.2584346+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request RefreshTokenCommand CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommand
+
+System.UnauthorizedAccessException: Invalid attempt!
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.ValidateRefreshToken(UserRefreshToken maybeRefreshToken, String refreshToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 143
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.Handle(RefreshTokenCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 58
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-27T16:15:10.4192893+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request RefreshTokenCommand CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommand
+
+System.InvalidOperationException: The instance of entity type 'UserRefreshToken' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.CreateRefreshToken(UserRefreshToken refreshToken, UserToken userToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 113
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.ValidateAndUpdateUserRefreshToken(UserRefreshToken refreshToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 88
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.Handle(RefreshTokenCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 62
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.Handle(RefreshTokenCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 69
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-27T16:17:33.0357605+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request RefreshTokenCommand CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommand
+
+System.InvalidOperationException: The instance of entity type 'UserRefreshToken' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.CreateRefreshToken(UserRefreshToken refreshToken, UserToken userToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 113
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.ValidateAndUpdateUserRefreshToken(UserRefreshToken refreshToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 88
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.Handle(RefreshTokenCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 62
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.Handle(RefreshTokenCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 69
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-27T16:25:25.1944507+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request LoginCommand CountPad.Application.UseCases.Authorizations.Logins.LoginCommand
+
+CountPad.Application.Common.Exceptions.NotFoundException: Incorrect Password
+   at CountPad.Application.UseCases.Authorizations.Logins.LoginCommandHandler.GetUserByCredentials(LoginCommand request) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\Logins\LoginCommand.cs:line 124
+   at CountPad.Application.UseCases.Authorizations.Logins.LoginCommandHandler.Handle(LoginCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\Logins\LoginCommand.cs:line 45
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-27T16:31:07.5572390+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request RefreshTokenCommand CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommand
+
+System.UnauthorizedAccessException: Invalid attempt!
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.ValidateRefreshToken(UserRefreshToken maybeRefreshToken, String refreshToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 148
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.Handle(RefreshTokenCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 58
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-27T16:41:31.8439567+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request RefreshTokenCommand CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommand
+
+System.UnauthorizedAccessException: Invalid attempt!
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.ValidateRefreshToken(UserRefreshToken maybeRefreshToken, String refreshToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 139
+   at CountPad.Application.UseCases.Authorizations.RefreshToken.RefreshTokenCommandHandler.Handle(RefreshTokenCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\RefreshToken\RefreshTokenCommand.cs:line 58
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-28T10:30:13.1088820+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request UpdateUserCommand CountPad.Application.UseCases.Users.Commands.UpdateUser.UpdateUserCommand
+
+CountPad.Application.Common.Exceptions.NotFoundException: Entity "User" (deafb53a-8623-4edc-903c-068f397adc13) was not found.
+   at CountPad.Application.UseCases.Users.Commands.UpdateUser.UpdateUserCommandHandler.ValidateUserIsNotNull(UpdateUserCommand request, User maybeUser) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Users\Commands\UpdateUser\UpdateUserCommand.cs:line 89
+   at CountPad.Application.UseCases.Users.Commands.UpdateUser.UpdateUserCommandHandler.Handle(UpdateUserCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Users\Commands\UpdateUser\UpdateUserCommand.cs:line 49
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-28T10:34:13.0109451+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request CreateProductCategoryCommand CountPad.Application.UseCases.ProductCategories.Commands.CreateProductCategory.CreateProductCategoryCommand
+
+Npgsql.PostgresException (0x80004005): 42P01: relation "ProductCategories" does not exist
+
+POSITION: 65
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|234_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at lambda_method303(Closure, QueryContext)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at CountPad.Application.UseCases.ProductCategories.Commands.CreateProductCategory.CreateProductCategoryCommandHandler.Handle(CreateProductCategoryCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\ProductCategories\Commands\CreateProductCategory\CreateProductCategoryCommand.cs:line 38
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "ProductCategories" does not exist
+    Position: 65
+    File: parse_relation.c
+    Line: 1395
+    Routine: parserOpenTable
+2023-05-28T10:47:46.1661685+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request LoginCommand CountPad.Application.UseCases.Authorizations.Logins.LoginCommand
+
+CountPad.Application.Common.Exceptions.NotFoundException: Incorrect Password
+   at CountPad.Application.UseCases.Authorizations.Logins.LoginCommandHandler.GetUserByCredentials(LoginCommand request) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\Logins\LoginCommand.cs:line 124
+   at CountPad.Application.UseCases.Authorizations.Logins.LoginCommandHandler.Handle(LoginCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\Logins\LoginCommand.cs:line 45
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-28T10:47:55.1609576+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request LoginCommand CountPad.Application.UseCases.Authorizations.Logins.LoginCommand
+
+CountPad.Application.Common.Exceptions.NotFoundException: Incorrect Password
+   at CountPad.Application.UseCases.Authorizations.Logins.LoginCommandHandler.GetUserByCredentials(LoginCommand request) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\Logins\LoginCommand.cs:line 124
+   at CountPad.Application.UseCases.Authorizations.Logins.LoginCommandHandler.Handle(LoginCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\Logins\LoginCommand.cs:line 45
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-28T10:48:00.3381630+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request LoginCommand CountPad.Application.UseCases.Authorizations.Logins.LoginCommand
+
+CountPad.Application.Common.Exceptions.NotFoundException: Incorrect Password
+   at CountPad.Application.UseCases.Authorizations.Logins.LoginCommandHandler.GetUserByCredentials(LoginCommand request) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\Logins\LoginCommand.cs:line 124
+   at CountPad.Application.UseCases.Authorizations.Logins.LoginCommandHandler.Handle(LoginCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Authorizations\Logins\LoginCommand.cs:line 45
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-28T10:48:52.4537525+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request GetProductCategoryQuery GetProductCategoryQuery { categoryId = 6160e9bc-c1f3-40d4-92a2-08924c8ef659 }
+
+System.InvalidCastException: Unable to cast object of type 'System.Guid' to type 'CountPad.Domain.Entities.Products.ProductCategory'.
+   at lambda_method346(Closure, QueryContext)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteAsync[TResult](Expression query, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.ExecuteAsync[TResult](Expression expression, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ExecuteAsync[TSource,TResult](MethodInfo operatorMethodInfo, IQueryable`1 source, Expression expression, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ExecuteAsync[TSource,TResult](MethodInfo operatorMethodInfo, IQueryable`1 source, LambdaExpression expression, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.SingleOrDefaultAsync[TSource](IQueryable`1 source, Expression`1 predicate, CancellationToken cancellationToken)
+   at CountPad.Application.UseCases.ProductCategories.Queries.GetProductCategories.GetProductCategoryQueryHandler.Handle(GetProductCategoryQuery request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\ProductCategories\Queries\GetProductCategories\GetProductCategoryQuery.cs:line 31
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-28T10:54:54.0539862+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request GetProductCategoryQuery GetProductCategoryQuery { categoryId = 3fa85f64-5717-4562-b3fc-2c963f66afa6 }
+
+CountPad.Application.Common.Exceptions.NotFoundException: Entity "ProductCategory" (3fa85f64-5717-4562-b3fc-2c963f66afa6) was not found.
+   at CountPad.Application.UseCases.ProductCategories.Queries.GetProductCategories.GetProductCategoryQueryHandler.ValidateCategoryIsNotNull(GetProductCategoryQuery request, ProductCategory maybeProductCategory)
+   at CountPad.Application.UseCases.ProductCategories.Queries.GetProductCategories.GetProductCategoryQueryHandler.Handle(GetProductCategoryQuery request, CancellationToken cancellationToken)
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+2023-05-28T10:58:59.0965457+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request UpdateProductCategoryCommand CountPad.Application.UseCases.ProductCategories.Commands.UpdateProductCategory.UpdateProductCategoryCommand
+
+System.InvalidCastException: Unable to cast object of type 'System.Guid' to type 'CountPad.Domain.Entities.Products.ProductCategory'.
+   at lambda_method355(Closure, QueryContext)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at CountPad.Application.UseCases.ProductCategories.Commands.UpdateProductCategory.UpdateProductCategoryCommandHandler.Handle(UpdateProductCategoryCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\ProductCategories\Commands\UpdateProductCategory\UpdateProductCategoryCommand.cs:line 41
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-28T11:00:19.5798616+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request UpdateProductCategoryCommand CountPad.Application.UseCases.ProductCategories.Commands.UpdateProductCategory.UpdateProductCategoryCommand
+
+System.InvalidCastException: Unable to cast object of type 'System.Guid' to type 'CountPad.Domain.Entities.Products.ProductCategory'.
+   at lambda_method355(Closure, QueryContext)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at CountPad.Application.UseCases.ProductCategories.Commands.UpdateProductCategory.UpdateProductCategoryCommandHandler.Handle(UpdateProductCategoryCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\ProductCategories\Commands\UpdateProductCategory\UpdateProductCategoryCommand.cs:line 41
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-28T11:05:22.9194871+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request DeleteProductCategoryCommand DeleteProductCategoryCommand { categoryId = 6160e9bc-c1f3-40d4-92a2-08924c8ef659 }
+
+System.InvalidCastException: Unable to cast object of type 'System.Guid' to type 'CountPad.Domain.Entities.Products.ProductCategory'.
+   at lambda_method413(Closure, QueryContext)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at CountPad.Application.UseCases.ProductCategories.Commands.DeleteProductCategory.DeleteProductCategoryCommandHandler.Handle(DeleteProductCategoryCommand request, CancellationToken cancellationToken)
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+2023-05-28T11:13:47.0853614+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request UpdateProductCommand CountPad.Application.UseCases.Products.Commands.UpdateProduct.UpdateProductCommand
+
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+ProductCategory -> ProductDto
+CountPad.Domain.Entities.Products.ProductCategory -> CountPad.Application.UseCases.Products.Models.ProductDto
+   at lambda_method176(Closure, Object, ProductDto, ResolutionContext)
+   at CountPad.Application.UseCases.Products.Commands.UpdateProduct.UpdateProductCommandHandler.Handle(UpdateProductCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Products\Commands\UpdateProduct\UpdateProductCommand.cs:line 52
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-28T13:40:14.8280938+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request CreateDistributorCommand CountPad.Application.UseCases.Distributors.Commands.CreateDistributor.CreateDistributorCommand
+
+CountPad.Application.Common.Exceptions.AlreadyExistsException: Entity "Distributor" (jonibek) already exists.
+   at CountPad.Application.UseCases.Distributors.Commands.CreateDistributor.CreateDistributorCommandHandler.ValidateDistributorIsNull(CreateDistributorCommand request, Distributor maybeDistributor) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Distributors\Commands\CreateDistributor\CreateDistributorCommand.cs:line 64
+   at CountPad.Application.UseCases.Distributors.Commands.CreateDistributor.CreateDistributorCommandHandler.Handle(CreateDistributorCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Distributors\Commands\CreateDistributor\CreateDistributorCommand.cs:line 46
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
