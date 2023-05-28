@@ -55,7 +55,16 @@ namespace CountPad.Application.UseCases.Packages.Commands.UpdatePackage
 
 			ValidateProductAndDistributorAreNotNull(maybeDistributor, maybeProduct, request);
 
+			maybePackage.Product = maybeProduct;
+			maybePackage.Distributor = maybeDistributor;
+			maybePackage.Count = request.Count;
+			maybePackage.SalePrice = request.SalePrice;
+			maybePackage.IncomingPrice = request.IncomingPrice;
+			maybePackage.IncomingDate = request.IncomingDate;
 
+			await _context.SaveChangesAsync(cancellationToken);
+
+			return _mapper.Map<PackageDto>(maybePackage);
 		}
 
 		private static void ValidatePackIsNotNull(UpdatePackageCommand request, Package maybePackage)
