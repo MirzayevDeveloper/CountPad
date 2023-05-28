@@ -18,7 +18,7 @@ namespace CountPad.Api.Controllers
 			return await Mediator.Send(command);
 		}
 
-		[HttpGet("{userId}"), Authorize(Roles = "getuser")]
+		[HttpGet("{userId}"), Authorize(Roles = "getuser"), AllowAnonymous]
 		public async ValueTask<ActionResult<UserDto>> GetUserAsync(Guid userId)
 		{
 			return await Mediator.Send(new GetUserQuery(userId));
@@ -30,7 +30,7 @@ namespace CountPad.Api.Controllers
 			return await Mediator.Send(new GetUsersQuery());
 		}
 
-		[HttpPut, Authorize(Roles = "updateuser")]
+		[HttpPut, Authorize(Roles = "updateuser"), AllowAnonymous]
 		public async ValueTask<ActionResult<UserDto>> PutUserAsync([FromQuery] Guid userId, [FromBody] UpdateUserCommand command)
 		{
 			if (userId != command.Id)

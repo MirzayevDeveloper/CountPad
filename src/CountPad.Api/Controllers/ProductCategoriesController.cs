@@ -4,13 +4,14 @@ using CountPad.Application.UseCases.ProductCategories.Commands.DeleteProductCate
 using CountPad.Application.UseCases.ProductCategories.Commands.UpdateProductCategory;
 using CountPad.Application.UseCases.ProductCategories.Models;
 using CountPad.Application.UseCases.ProductCategories.Queries.GetProductCategories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CountPad.Api.Controllers
 {
-	public class ProductCategoryCategoriesController : ApiControllerBase
+	public class ProductCategoriesController : ApiControllerBase
 	{
-		[HttpPost]
+		[HttpPost, Authorize(Roles = "createproductcategory")]
 		public async ValueTask<ActionResult<ProductCategoryDto>> PostProductCategoryAsync(CreateProductCategoryCommand command)
 		{
 			ProductCategoryDto dto = await Mediator.Send(command);
@@ -18,31 +19,25 @@ namespace CountPad.Api.Controllers
 			return Ok(dto);
 		}
 
-		[HttpGet("{ProductCategoryId}")]
+		[HttpGet("{ProductCategoryId}"), Authorize(Roles = "getproductcategory")]
 		public async ValueTask<ActionResult<ProductCategoryDto>> GetProductCategoryAsync(Guid ProductCategoryId)
 		{
 			return await Mediator.Send(new GetProductCategoryQuery(ProductCategoryId));
 		}
 
-		[HttpGet]
+		[HttpGet, Authorize(Roles = "getallproductcategories")]
 		public async ValueTask<ActionResult<ProductCategoryDto[]>> GetProductCategoriesAsync()
 		{
 			return await Mediator.Send(new GetProductCategoriesQuery());
 		}
 
-		[HttpGet("pagination")]
-		public async ValueTask<ActionResult<PaginatedList<ProductCategoryDto>>> GetProductCategoriesWithPaginated([FromQuery] GetProductCategorysWithPaginationQuery query)
-		{
-			return await Mediator.Send(query);
-		}
-
-		[HttpPut]
+		[HttpPut, Authorize(Roles = "updateproductcategory")]
 		public async ValueTask<ActionResult<ProductCategoryDto>> PutProductCategoryAsync(UpdateProductCategoryCommand command)
 		{
 			return await Mediator.Send(command);
 		}
 
-		[HttpDelete("{ProductCategoryId}")]
+		[HttpDelete("{ProductCategoryId}"), Authorize(Roles = "deleteproductcategory")]
 		public async ValueTask<ActionResult<ProductCategoryDto>> DeleteProductCategoryAsync(Guid ProductCategoryId)
 		{
 			return await Mediator.Send(new DeleteProductCategoryCommand(ProductCategoryId));
