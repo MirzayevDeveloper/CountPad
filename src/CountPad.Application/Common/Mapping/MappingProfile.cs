@@ -2,6 +2,7 @@
 using CountPad.Application.UseCases.Permissions.Commands.UpdatePermission;
 using CountPad.Application.UseCases.Permissions.Models;
 using CountPad.Application.UseCases.ProductCategories.Models;
+using CountPad.Application.UseCases.Products.Models;
 using CountPad.Application.UseCases.Roles.Models;
 using CountPad.Application.UseCases.Users.Models;
 using CountPad.Domain.Entities.Identities;
@@ -19,6 +20,7 @@ namespace CountPad.Application.Common.Mapping
 			CreateMap<Permission, PermissionDto>().ReverseMap();
 			CreateMap<UpdatePermissionCommand, PermissionDto>().ReverseMap();
 			CreateMap<ProductCategoryDto, ProductCategory>().ReverseMap();
+			CreateMap<Product, ProductDto>().ReverseMap();
 		}
 	}
 }
