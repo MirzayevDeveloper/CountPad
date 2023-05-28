@@ -38,6 +38,7 @@ namespace CountPad.Infrastructure.Persistence
 		public DbSet<Permission> Permissions { get; set; }
 		public DbSet<User> Users { get; set; }
 		public DbSet<UserRefreshToken> RefreshTokens { get; set; }
+		public DbSet<Package> PackageHistories { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{

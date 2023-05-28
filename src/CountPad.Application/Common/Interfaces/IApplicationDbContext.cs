@@ -25,6 +25,7 @@ namespace CountPad.Application.Common.Interfaces
 		DbSet<Permission> Permissions { get; }
 		DbSet<User> Users { get; }
 		DbSet<UserRefreshToken> RefreshTokens { get; }
+		DbSet<Package> PackageHistories { get; }
 
 		IQueryable<T> GetByIds<T>(IEnumerable<Guid> ids) where T : class;
 

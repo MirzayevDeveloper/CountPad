@@ -3,6 +3,7 @@ using System;
 using CountPad.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CountPad.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230528130651_Initial3")]
+    partial class Initial3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -166,7 +169,46 @@ namespace CountPad.Infrastructure.Persistence.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Package");
+                    b.ToTable("Packages");
+                });
+
+            modelBuilder.Entity("CountPad.Domain.Entities.Packages.PackageHistory", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<double>("Count")
+                        .HasColumnType("double precision");
+
+                    b.Property<DateTimeOffset>("CreatedDate")
+                        .HasColumnType("timestamptz");
+
+                    b.Property<Guid?>("DistributorId")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTimeOffset>("IncomingDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<decimal>("IncomingPrice")
+                        .HasColumnType("numeric");
+
+                    b.Property<Guid?>("ProductId")
+                        .HasColumnType("uuid");
+
+                    b.Property<decimal>("SalePrice")
+                        .HasColumnType("numeric");
+
+                    b.Property<DateTimeOffset>("UpdatedDate")
+                        .HasColumnType("timestamptz");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DistributorId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("PackageHistories");
                 });
 
             modelBuilder.Entity("CountPad.Domain.Entities.Products.Product", b =>
@@ -352,6 +394,21 @@ namespace CountPad.Infrastructure.Persistence.Migrations
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Distributor");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("CountPad.Domain.Entities.Packages.PackageHistory", b =>
+                {
+                    b.HasOne("CountPad.Domain.Entities.Distributor", "Distributor")
+                        .WithMany()
+                        .HasForeignKey("DistributorId");
+
+                    b.HasOne("CountPad.Domain.Entities.Products.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId");
 
                     b.Navigation("Distributor");
 
