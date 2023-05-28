@@ -23,7 +23,7 @@ namespace CountPad.Application.UseCases.Distributors.Commands.CreateDistributor
 		public string DelivererPhone { get; set; }
 	}
 
-	public class CreateDistributorCommandHandler : IRequestHandler<CreateDistributorCommand, DistributorDto'>
+	public class CreateDistributorCommandHandler : IRequestHandler<CreateDistributorCommand, DistributorDto>
 	{
 		private readonly IApplicationDbContext _context;
 		private readonly IMapper _mapper;
