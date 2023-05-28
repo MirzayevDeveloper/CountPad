@@ -8,7 +8,6 @@ using CountPad.Application.Common.Interfaces;
 using CountPad.Application.UseCases.Orders.Models;
 using CountPad.Domain.Entities.Orders;
 using CountPad.Domain.Entities.Packages;
-using CountPad.Domain.Entities.Products;
 using CountPad.Domain.Entities.Users;
 using MediatR;
 
@@ -39,7 +38,7 @@ namespace CountPad.Application.UseCases.Orders.Commands.CreateOrder
 		private DateTimeOffset _currentTime;
 		public DateTimeOffset CurrentTime => _currentTime;
 
-        public async Task<OrderDto> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
+		public async Task<OrderDto> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
 		{
 			Package maybePackage = _context.Packages
 				.SingleOrDefault(p => p.Id.Equals(request.PackageId));

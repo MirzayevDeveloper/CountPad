@@ -57,6 +57,7 @@ namespace CountPad.Application.UseCases.Packages.Commands.CreatePackage
 			};
 
 			package = _context.Packages.Add(package).Entity;
+			_context.PackageHistories.Add(package);
 			await _context.SaveChangesAsync(cancellationToken);
 
 			return _mapper.Map<PackageDto>(package);
