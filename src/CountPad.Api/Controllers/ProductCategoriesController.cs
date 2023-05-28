@@ -32,8 +32,13 @@ namespace CountPad.Api.Controllers
 		}
 
 		[HttpPut, Authorize(Roles = "updateproductcategory")]
-		public async ValueTask<ActionResult<ProductCategoryDto>> PutProductCategoryAsync(UpdateProductCategoryCommand command)
+		public async ValueTask<ActionResult<ProductCategoryDto>> PutProductCategoryAsync(Guid categoryId, UpdateProductCategoryCommand command)
 		{
+			if(categoryId != command.Id)
+			{
+				return BadRequest();
+			}
+
 			return await Mediator.Send(command);
 		}
 

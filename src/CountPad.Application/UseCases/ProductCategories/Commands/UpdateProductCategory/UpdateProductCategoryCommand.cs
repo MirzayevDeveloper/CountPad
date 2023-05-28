@@ -39,7 +39,7 @@ namespace CountPad.Application.UseCases.ProductCategories.Commands.UpdateProduct
 		public async Task<ProductCategoryDto> Handle(UpdateProductCategoryCommand request, CancellationToken cancellationToken)
 		{
 			ProductCategory maybeProductCategory =
-				_context.ProductCategories.SingleOrDefault(pc => pc.Equals(request.Id));
+				_context.ProductCategories.SingleOrDefault(pc => pc.Id.Equals(request.Id));
 
 			ValidateCategoryIsNotNull(request, maybeProductCategory);
 

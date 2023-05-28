@@ -49,7 +49,7 @@ namespace CountPad.Application.UseCases.Products.Commands.UpdateProduct
 
 			await _context.SaveChangesAsync(cancellationToken);
 
-			return _mapper.Map<ProductDto>(maybeCategory);
+			return _mapper.Map<ProductDto>(maybeProduct);
 		}
 
 		private static void ValidateCategoryIsNotNull(UpdateProductCommand request, ProductCategory maybeCategory)

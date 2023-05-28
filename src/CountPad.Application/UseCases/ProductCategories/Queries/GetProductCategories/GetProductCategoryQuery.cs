@@ -29,7 +29,7 @@ namespace CountPad.Application.UseCases.ProductCategories.Queries.GetProductCate
 		public async Task<ProductCategoryDto> Handle(GetProductCategoryQuery request, CancellationToken cancellationToken)
 		{
 			ProductCategory maybeProductCategory = await
-				_context.ProductCategories.SingleOrDefaultAsync(pc => pc.Equals(request.categoryId));
+				_context.ProductCategories.SingleOrDefaultAsync(pc => pc.Id.Equals(request.categoryId));
 
 			ValidateCategoryIsNotNull(request, maybeProductCategory);
 

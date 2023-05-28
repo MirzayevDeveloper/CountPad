@@ -29,7 +29,7 @@ namespace CountPad.Application.UseCases.ProductCategories.Commands.DeleteProduct
 		public async Task<ProductCategoryDto> Handle(DeleteProductCategoryCommand request, CancellationToken cancellationToken)
 		{
 			ProductCategory maybeProductCategory =
-				_context.ProductCategories.SingleOrDefault(pc => pc.Equals(request.categoryId));
+				_context.ProductCategories.SingleOrDefault(pc => pc.Id.Equals(request.categoryId));
 
 			ValidateCategoryIsNotNull(request, maybeProductCategory);
 
