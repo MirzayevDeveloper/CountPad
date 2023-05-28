@@ -413,3 +413,23 @@ CountPad.Application.Common.Exceptions.AlreadyExistsException: Entity "Distribut
    at CountPad.Application.UseCases.Distributors.Commands.CreateDistributor.CreateDistributorCommandHandler.Handle(CreateDistributorCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Distributors\Commands\CreateDistributor\CreateDistributorCommand.cs:line 46
    at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
    at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-28T15:18:20.2220556+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request GetPackagesQuery GetPackagesQuery { }
+
+System.InvalidCastException: Can't cast database type timestamp without time zone to DateTimeOffset
+   at Npgsql.Internal.TypeHandling.NpgsqlTypeHandler.ReadCustom[TAny](NpgsqlReadBuffer buf, Int32 len, Boolean async, FieldDescription fieldDescription)
+   at Npgsql.NpgsqlDataReader.GetFieldValue[T](Int32 ordinal)
+   at lambda_method635(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToArrayAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at CountPad.Application.UseCases.Packages.Queries.GetPackage.GetPackagesQueryHandler.Handle(GetPackagesQuery request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Packages\Queries\GetPackage\GetPackagesQuery.cs:line 33
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15
+2023-05-28T15:26:09.2102585+05:00 [ERR] (//) CountPad Request: Unhandled Exception for Request CreatePermissionCommand CountPad.Application.UseCases.Permissions.Commands.CreatePermission.CreatePermissionCommand
+
+CountPad.Application.Common.Exceptions.AlreadyExistsException: Entity "Permission" (getproductswithpagination) already exists.
+   at CountPad.Application.UseCases.Permissions.Commands.CreatePermission.CreatePermissionCommandHandler.ValidatePermissionDoesNoteExist(CreatePermissionCommand request, Permission permission) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Permissions\Commands\CreatePermission\CreatePermissionCommand.cs:line 58
+   at CountPad.Application.UseCases.Permissions.Commands.CreatePermission.CreatePermissionCommandHandler.Handle(CreatePermissionCommand request, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\UseCases\Permissions\Commands\CreatePermission\CreatePermissionCommand.cs:line 42
+   at CountPad.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\ValidationBehaviour.cs:line 39
+   at CountPad.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Asus\Desktop\Projects\CountPad\src\CountPad.Application\Common\Behaviours\UnhandledExceptionBehaviour.cs:line 15

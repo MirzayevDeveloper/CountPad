@@ -24,7 +24,7 @@ namespace CountPad.Api.Controllers
 			return await Mediator.Send(new GetPackageQuery(packageId));
 		}
 
-		[HttpGet, Authorize(Roles = "getallPackages")]
+		[HttpGet, Authorize(Roles = "getallpackages")]
 		public async ValueTask<ActionResult<PackageDto[]>> GetPackagesAsync()
 		{
 			return await Mediator.Send(new GetPackagesQuery());
