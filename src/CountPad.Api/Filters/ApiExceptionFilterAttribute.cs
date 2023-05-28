@@ -1,4 +1,5 @@
-﻿using CountPad.Application.Common.Exceptions;
+﻿using System;
+using CountPad.Application.Common.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
@@ -16,7 +17,8 @@ namespace CountPad.Api.Filters
 				{ typeof(NotFoundException), HandleNotFoundException },
 				{ typeof(UnauthorizedAccessException), HandleUnauthorizedAccessException },
 				{ typeof(ForbiddenAccessException), HandleForbiddenAccessException },
-				{ typeof(AlreadyExistsException), HandleAlreadyExistsException }
+				{ typeof(AlreadyExistsException), HandleAlreadyExistsException },
+				{ typeof(Exception), HandleSystemException }
 			};
 		}
 
@@ -125,6 +127,18 @@ namespace CountPad.Api.Filters
 			{
 				Title = "The specified resource already exists.",
 				Detail = exception.Message
+			};
+
+			context.Result = new BadRequestObjectResult(details);
+
+			context.ExceptionHandled = true;
+		}
+
+		private void HandleSystemException(ExceptionContext context)
+		{
+			var details = new ProblemDetails()
+			{
+				Title = "Error occurred please, contact support",
 			};
 
 			context.Result = new BadRequestObjectResult(details);
