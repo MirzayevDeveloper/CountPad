@@ -1,31 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using CountPad.Application.Common.Interfaces;
 using CountPad.Application.Common.Models;
 using CountPad.Application.UseCases.Packages.Models;
-using CountPad.Application.UseCases.Products.Models;
-using CountPad.Domain.Entities.Products;
+using CountPad.Domain.Entities.Packages;
 using MediatR;
 
 namespace CountPad.Application.UseCases.Packages.Queries.GetProductsWithPagination
 {
-	public class GetProductsWithPaginationQuery : IRequest<PaginatedList<PackageDto>>
+	public class GetPackagesWithPaginationQuery : IRequest<PaginatedList<PackageDto>>
 	{
 		public int PageNumber { get; init; } = 1;
 		public int PageSize { get; init; } = 10;
 	}
 
-	public class GetProductsWithPaginationQueryHandler : IRequestHandler<GetProductsWithPaginationQuery, PaginatedList<PackageDto>>
+	public class GetPackagesWithPaginationQueryHandler : IRequestHandler<GetPackagesWithPaginationQuery, PaginatedList<PackageDto>>
 	{
 		private readonly IApplicationDbContext _context;
 		private readonly IMapper _mapper;
 
-		public GetProductsWithPaginationQueryHandler(
+		public GetPackagesWithPaginationQueryHandler(
 			IApplicationDbContext context,
 			IMapper mapper)
 		{
@@ -33,14 +29,14 @@ namespace CountPad.Application.UseCases.Packages.Queries.GetProductsWithPaginati
 			_mapper = mapper;
 		}
 
-		public async Task<PaginatedList<ProductDto>> Handle(GetProductsWithPaginationQuery request, CancellationToken cancellationToken)
+		public async Task<PaginatedList<PackageDto>> Handle(GetPackagesWithPaginationQuery request, CancellationToken cancellationToken)
 		{
-			Product[] products = _context.Products.ToArray();
+			Package[] products = _context.Packages.ToArray();
 
-			IQueryable<ProductDto> dtos = _mapper.Map<ProductDto[]>(products).AsQueryable();
+			IQueryable<PackageDto> dtos = _mapper.Map<PackageDto[]>(products).AsQueryable();
 
-			PaginatedList<ProductDto> paginatedList =
-				await PaginatedList<ProductDto>.CreateAsync(
+			PaginatedList<PackageDto> paginatedList =
+				await PaginatedList<PackageDto>.CreateAsync(
 					dtos, request.PageNumber, request.PageSize);
 
 			return paginatedList;
