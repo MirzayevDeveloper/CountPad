@@ -1,8 +1,10 @@
-﻿using CountPad.Application.UseCases.Orders.Commands.CreateOrder;
+﻿using CountPad.Application.Common.Models;
+using CountPad.Application.UseCases.Orders.Commands.CreateOrder;
 using CountPad.Application.UseCases.Orders.Commands.DeleteOrder;
 using CountPad.Application.UseCases.Orders.Commands.UpdateOrder;
 using CountPad.Application.UseCases.Orders.Models;
 using CountPad.Application.UseCases.Orders.Queries.GetOrder;
+using CountPad.Application.UseCases.Orders.Queries.GetOrdersWithPagination;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,11 +30,11 @@ namespace CountPad.Api.Controllers
 			return await Mediator.Send(new GetOrdersQuery());
 		}
 
-		//[HttpGet("pagination"), Authorize(Roles = "getOrderswithpagination")]
-		//public async ValueTask<ActionResult<PaginatedList<OrderDto>>> GetOrdersWithPaginated([FromQuery] GetOrdersWithPaginationQuery query)
-		//{
-		//	return await Mediator.Send(query);
-		//}
+		[HttpGet("pagination"), Authorize(Roles = "getOrderswithpagination")]
+		public async ValueTask<ActionResult<PaginatedList<OrderDto>>> GetOrdersWithPaginated([FromQuery] GetOrdersWithPaginationQuery query)
+		{
+			return await Mediator.Send(query);
+		}
 
 		[HttpPut, Authorize(Roles = "updateorder")]
 		public async ValueTask<ActionResult<OrderDto>> PutOrderAsync(Guid orderId, UpdateOrderCommand command)

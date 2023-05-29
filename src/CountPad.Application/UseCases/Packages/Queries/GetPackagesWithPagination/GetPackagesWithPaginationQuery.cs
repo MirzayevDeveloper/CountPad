@@ -10,7 +10,7 @@ using MediatR;
 
 namespace CountPad.Application.UseCases.Packages.Queries.GetProductsWithPagination
 {
-	public class GetPackagesWithPaginationQuery : IRequest<PaginatedList<PackageDto>>
+	public record GetPackagesWithPaginationQuery : IRequest<PaginatedList<PackageDto>>
 	{
 		public int PageNumber { get; init; } = 1;
 		public int PageSize { get; init; } = 10;
