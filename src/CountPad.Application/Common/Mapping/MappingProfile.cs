@@ -2,7 +2,7 @@
 using CountPad.Application.UseCases.Distributors.Models;
 using CountPad.Application.UseCases.Orders.Models;
 using CountPad.Application.UseCases.Packages.Models;
-using CountPad.Application.UseCases.Permissions.Models;
+using CountPad.Application.UseCases.Permissions.Queries;
 using CountPad.Application.UseCases.ProductCategories.Models;
 using CountPad.Application.UseCases.Products.Models;
 using CountPad.Application.UseCases.Roles.Models;
@@ -22,13 +22,15 @@ namespace CountPad.Application.Common.Mapping
 		{
 			CreateMap<Role, RoleDto>().ReverseMap();
 			CreateMap<UserDto, User>().ReverseMap();
+			CreateMap<RoleOrder, Role>().ReverseMap();
 			CreateMap<OrderDto, Order>().ReverseMap();
+			CreateMap<UserOrderDto, User>().ReverseMap();
 			CreateMap<Product, ProductDto>().ReverseMap();
 			CreateMap<Package, PackageDto>().ReverseMap();
+			CreateMap<Package, PackageHistory>().ReverseMap();
 			CreateMap<Permission, PermissionDto>().ReverseMap();
 			CreateMap<DistributorDto, Distributor>().ReverseMap();
 			CreateMap<ProductCategoryDto, ProductCategory>().ReverseMap();
-			CreateMap<Package, PackageHistory>().ReverseMap();
 		}
 	}
 }

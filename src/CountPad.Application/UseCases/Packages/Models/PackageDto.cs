@@ -1,12 +1,14 @@
 ﻿using System;
-using CountPad.Application.Common.Models;
+using System.Text.Json.Serialization;
 using CountPad.Application.UseCases.Distributors.Models;
 using CountPad.Application.UseCases.Products.Models;
 
 namespace CountPad.Application.UseCases.Packages.Models
 {
-	public class PackageDto : BaseAuditableEntityDto
+	public class PackageDto
 	{
+		[JsonPropertyName("package_id")]
+		public Guid Id { get; set; }
 		public Double Count { get; set; }
 		public Decimal IncomingPrice { get; set; }
 		public Decimal SalePrice { get; set; }

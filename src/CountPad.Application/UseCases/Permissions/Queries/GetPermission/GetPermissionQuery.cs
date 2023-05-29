@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using AutoMapper;
 using CountPad.Application.Common.Exceptions;
 using CountPad.Application.Common.Interfaces;
-using CountPad.Application.UseCases.Permissions.Models;
 using CountPad.Domain.Entities.Identities;
 using MediatR;
 

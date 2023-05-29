@@ -1,7 +1,7 @@
 ﻿using CountPad.Application.UseCases.Permissions.Commands.CreatePermission;
 using CountPad.Application.UseCases.Permissions.Commands.DeletePermission;
 using CountPad.Application.UseCases.Permissions.Commands.UpdatePermission;
-using CountPad.Application.UseCases.Permissions.Models;
+using CountPad.Application.UseCases.Permissions.Queries;
 using CountPad.Application.UseCases.Permissions.Queries.GetPermission;
 using CountPad.Application.UseCases.Permissions.Queries.GetPermissions;
 using Microsoft.AspNetCore.Authorization;
