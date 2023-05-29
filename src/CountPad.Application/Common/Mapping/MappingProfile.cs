@@ -28,6 +28,7 @@ namespace CountPad.Application.Common.Mapping
 			CreateMap<Permission, PermissionDto>().ReverseMap();
 			CreateMap<DistributorDto, Distributor>().ReverseMap();
 			CreateMap<ProductCategoryDto, ProductCategory>().ReverseMap();
+			CreateMap<Package, PackageHistory>().ReverseMap();
 		}
 	}
 }
