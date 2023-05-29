@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using CountPad.Application.Common.Interfaces;
 using CountPad.Application.Common.Models;
 using CountPad.Application.UseCases.Orders.Models;
-using CountPad.Application.UseCases.Packages.Models;
 using CountPad.Domain.Entities.Orders;
-using CountPad.Domain.Entities.Products;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -39,10 +35,10 @@ namespace CountPad.Application.UseCases.Orders.Queries.GetOrdersWithPagination
 		{
 			Order[] orders = await _context.Orders.ToArrayAsync();
 
-			IQueryable<OrderDto> dtos = _mapper.Map<OrderDto[]>(orders).AsQueryable();
+			List<OrderDto> dtos = _mapper.Map<OrderDto[]>(orders).ToList();
 
 			PaginatedList<OrderDto> paginatedList =
-				await PaginatedList<OrderDto>.CreateAsync(
+				 PaginatedList<OrderDto>.CreateAsync(
 					dtos, request.PageNumber, request.PageSize);
 
 			return paginatedList;

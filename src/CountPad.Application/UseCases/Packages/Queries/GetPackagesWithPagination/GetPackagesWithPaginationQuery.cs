@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -7,6 +8,7 @@ using CountPad.Application.Common.Models;
 using CountPad.Application.UseCases.Packages.Models;
 using CountPad.Domain.Entities.Packages;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace CountPad.Application.UseCases.Packages.Queries.GetProductsWithPagination
 {
@@ -31,12 +33,12 @@ namespace CountPad.Application.UseCases.Packages.Queries.GetProductsWithPaginati
 
 		public async Task<PaginatedList<PackageDto>> Handle(GetPackagesWithPaginationQuery request, CancellationToken cancellationToken)
 		{
-			Package[] products = _context.Packages.ToArray();
+			Package[] products = await _context.Packages.ToArrayAsync();
 
-			IQueryable<PackageDto> dtos = _mapper.Map<PackageDto[]>(products).AsQueryable();
+			List<PackageDto> dtos = _mapper.Map<PackageDto[]>(products).ToList();
 
 			PaginatedList<PackageDto> paginatedList =
-				await PaginatedList<PackageDto>.CreateAsync(
+				PaginatedList<PackageDto>.CreateAsync(
 					dtos, request.PageNumber, request.PageSize);
 
 			return paginatedList;

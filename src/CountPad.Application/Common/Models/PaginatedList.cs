@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 
 namespace CountPad.Application.Common.Models
 {
@@ -25,10 +23,10 @@ namespace CountPad.Application.Common.Models
 
 		public bool HasNextPage => PageNumber < TotalPages;
 
-		public static async Task<PaginatedList<T>> CreateAsync(IQueryable<T> source, int pageNumber, int pageSize)
+		public static PaginatedList<T> CreateAsync(IEnumerable<T> source, int pageNumber, int pageSize)
 		{
-			var count = await source.CountAsync();
-			var items = await source.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+			var count = source.Count();
+			var items = source.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
 
 			return new PaginatedList<T>(items, count, pageNumber, pageSize);
 		}
