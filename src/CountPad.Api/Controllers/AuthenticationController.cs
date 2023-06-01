@@ -1,4 +1,5 @@
-﻿using CountPad.Application.UseCases.Authorizations.Logins;
+﻿using CountPad.Api.Filters;
+using CountPad.Application.UseCases.Authorizations.Logins;
 using CountPad.Application.UseCases.Authorizations.RefreshToken;
 using CountPad.Domain.Common.Security;
 using Microsoft.AspNetCore.Authorization;
@@ -8,7 +9,7 @@ namespace CountPad.Api.Controllers
 {
 	public class AuthenticationController : ApiControllerBase
 	{
-		[HttpPost, AllowAnonymous]
+		[HttpPost, AllowAnonymous, LogEndpoint, AddCustomHeader(headerName: "Login", headerValue: "Password")]
 		public async ValueTask<ActionResult<UserToken>> LoginAsync([FromQuery] LoginCommand command)
 		{
 			UserToken maybeToken = await Mediator.Send(command);

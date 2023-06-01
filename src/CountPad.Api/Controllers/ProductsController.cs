@@ -1,4 +1,5 @@
-﻿using CountPad.Application.Common.Models;
+﻿using CountPad.Api.Filters;
+using CountPad.Application.Common.Models;
 using CountPad.Application.UseCases.Products.Commands.CreateProduct;
 using CountPad.Application.UseCases.Products.Commands.DeleteProduct;
 using CountPad.Application.UseCases.Products.Commands.UpdateProduct;
@@ -26,7 +27,7 @@ namespace CountPad.Api.Controllers
 			return await Mediator.Send(new GetProductQuery(productId));
 		}
 
-		[HttpGet, Authorize(Roles = "getallproducts")]
+		[HttpGet, BasicAuthentication(Roles = "getallproducts")]
 		public async ValueTask<ActionResult<ProductDto[]>> GetProductsAsync()
 		{
 			return await Mediator.Send(new GetProductsQuery());
