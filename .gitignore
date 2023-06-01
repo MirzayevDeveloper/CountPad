@@ -288,3 +288,5 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 /src/CountPad.Api/Logs/log.txt
+/src/CountPad.Api/appsettings.Development.json
+/src/CountPad.Api/appsettings.json
