@@ -14,7 +14,7 @@ namespace CountPad.Api.Controllers
 {
 	public class ProductsController : ApiControllerBase
 	{
-		[HttpPost, Authorize(Roles = "createproduct")]
+		[HttpPost, Authorize(Roles = "createproduct"), LogEndpoint, AllowAnonymous]
 		public async ValueTask<ActionResult<ProductDto>> PostProductAsync(CreateProductCommand command)
 		{
 			ProductDto dto = await Mediator.Send(command);
