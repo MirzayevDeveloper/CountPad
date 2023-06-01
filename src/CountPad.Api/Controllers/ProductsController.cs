@@ -5,6 +5,7 @@ using CountPad.Application.UseCases.Products.Commands.DeleteProduct;
 using CountPad.Application.UseCases.Products.Commands.UpdateProduct;
 using CountPad.Application.UseCases.Products.Models;
 using CountPad.Application.UseCases.Products.Queries.GetProducts;
+using CountPad.Application.UseCases.Products.Queries.GetProductsWithFilters;
 using CountPad.Application.UseCases.Products.Queries.GetProductsWithPagination;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -27,14 +28,20 @@ namespace CountPad.Api.Controllers
 			return await Mediator.Send(new GetProductQuery(productId));
 		}
 
-		[HttpGet, BasicAuthentication(Roles = "getallproducts")]
+		/*[HttpGet, BasicAuthentication(Roles = "getallproducts")]
 		public async ValueTask<ActionResult<ProductDto[]>> GetProductsAsync()
 		{
 			return await Mediator.Send(new GetProductsQuery());
+		}*/
+
+		[HttpGet, Authorize(Roles = "getproductswithpagination")]
+		public async ValueTask<ActionResult<PaginatedList<ProductDto>>> GetProductsWithPaginated([FromQuery] GetProductsWithPaginationQuery query)
+		{
+			return await Mediator.Send(query);
 		}
 
-		[HttpGet("pagination"), Authorize(Roles = "getproductswithpagination")]
-		public async ValueTask<ActionResult<PaginatedList<ProductDto>>> GetProductsWithPaginated([FromQuery] GetProductsWithPaginationQuery query)
+		[HttpGet("Filter"), Authorize(Roles = "getproductswithfilter"), AllowAnonymous]
+		public async ValueTask<ActionResult<PaginatedList<ProductDto>>> GetProductsWithFilter([FromQuery] GetProductsWithFilterQuery query)
 		{
 			return await Mediator.Send(query);
 		}
