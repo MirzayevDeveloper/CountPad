@@ -7,12 +7,12 @@ namespace CountPad.Api.Filters
 	{
 		public BasicAuthenticationAttribute() { }
 
-        public BasicAuthenticationAttribute(string policy)
-        {
-            Policy = policy;
-        }
+		public BasicAuthenticationAttribute(string policy)
+		{
+			Policy = policy;
+		}
 
-        public string? AuthenticationSchemes { get; set; }
+		public string? AuthenticationSchemes { get; set; }
 		public string? Policy { get; set; }
 		public string? Roles { get; set; }
 	}

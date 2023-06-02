@@ -1,5 +1,4 @@
-﻿using CountPad.Api.Filters;
-using CountPad.Application.Common.Models;
+﻿using CountPad.Application.Common.Models;
 using CountPad.Application.UseCases.Orders.Commands.CreateOrder;
 using CountPad.Application.UseCases.Orders.Commands.DeleteOrder;
 using CountPad.Application.UseCases.Orders.Commands.UpdateOrder;

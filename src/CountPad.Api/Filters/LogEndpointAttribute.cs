@@ -34,7 +34,7 @@ namespace CountPad.Api.Filters
 				using (var reader = new StreamReader(request.Body, leaveOpen: true))
 				{
 					string body = await reader.ReadToEndAsync();
-					request.Body.Position = 0; 
+					request.Body.Position = 0;
 					return body;
 				}
 			}
