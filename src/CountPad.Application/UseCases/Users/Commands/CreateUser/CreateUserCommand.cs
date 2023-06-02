@@ -7,6 +7,7 @@ using AutoMapper;
 using CountPad.Application.Common.Exceptions;
 using CountPad.Application.Common.Interfaces;
 using CountPad.Application.UseCases.Users.Models;
+using CountPad.Application.UseCases.Users.Notifications;
 using CountPad.Domain.Entities.Identities;
 using CountPad.Domain.Entities.Users;
 using MediatR;
@@ -27,15 +28,18 @@ namespace CountPad.Application.UseCases.Users.Commands.CreateUser
 		private readonly IApplicationDbContext _context;
 		private readonly ISecurityService _securityService;
 		private readonly IMapper _mapper;
+		private readonly IMediator _mediator;
 
 		public CreateUserCommandHandler(
 			IApplicationDbContext context,
 			ISecurityService securityService,
-			IMapper mapper)
+			IMapper mapper,
+			IMediator mediator)
 		{
 			_mapper = mapper;
 			_context = context;
 			_securityService = securityService;
+			_mediator = mediator;
 		}
 
 		public async Task<UserDto> Handle(CreateUserCommand request, CancellationToken cancellationToken)
@@ -65,6 +69,8 @@ namespace CountPad.Application.UseCases.Users.Commands.CreateUser
 			user = _context.Users.Add(user).Entity;
 
 			await _context.SaveChangesAsync(cancellationToken);
+
+			await _mediator.Publish(new UserCreatedNotification(user.Phone));
 
 			return _mapper.Map<UserDto>(user);
 		}
