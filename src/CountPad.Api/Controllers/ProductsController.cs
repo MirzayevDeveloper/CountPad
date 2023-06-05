@@ -30,6 +30,8 @@ namespace CountPad.Api.Controllers
 		{
 			ProductDto dto = await Mediator.Send(command);
 
+			_cache.Remove(My_First_Key);
+
 			return Ok(dto);
 		}
 

@@ -17,7 +17,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddApplicationService();
 builder.Services.AddInfrastructureService(builder.Configuration);
 
+// CACHE Service start
 builder.Services.AddLazyCache();
+builder.Services.AddOutputCache();
+// CACHE Service end
 
 builder.Services.AddSwaggerGen(options =>
 {
@@ -60,6 +63,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseOutputCache();
 
 app.MapControllers();
 

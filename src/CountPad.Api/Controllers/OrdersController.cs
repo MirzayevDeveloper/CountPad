@@ -7,6 +7,7 @@ using CountPad.Application.UseCases.Orders.Queries.GetOrder;
 using CountPad.Application.UseCases.Orders.Queries.GetOrdersWithPagination;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OutputCaching;
 
 namespace CountPad.Api.Controllers
 {
@@ -30,7 +31,7 @@ namespace CountPad.Api.Controllers
 			return await Mediator.Send(new GetOrdersQuery());
 		}
 
-		[HttpGet("pagination"), Authorize(Roles = "getOrderswithpagination")]
+		[HttpGet("pagination"), Authorize(Roles = "getOrderswithpagination"), OutputCache(Duration = 30)]
 		public async ValueTask<ActionResult<PaginatedList<OrderDto>>> GetOrdersWithPaginated([FromQuery] GetOrdersWithPaginationQuery query)
 		{
 			return await Mediator.Send(query);
