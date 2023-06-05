@@ -27,8 +27,6 @@ namespace CountPad.Application.Common.Interfaces
 		DbSet<UserRefreshToken> RefreshTokens { get; }
 		DbSet<PackageHistory> PackageHistories { get; }
 
-		IQueryable<T> GetByIds<T>(IEnumerable<Guid> ids) where T : class;
-
 		Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 	}
 }

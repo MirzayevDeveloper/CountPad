@@ -17,6 +17,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddApplicationService();
 builder.Services.AddInfrastructureService(builder.Configuration);
 
+builder.Services.AddLazyCache();
+
 builder.Services.AddSwaggerGen(options =>
 {
 	options.SwaggerDoc("v1", new OpenApiInfo { Title = "CountPad", Version = "v1" });
@@ -51,7 +53,8 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
 	app.UseSwagger();
-	app.UseSwaggerUI();
+	app.UseSwaggerUI(
+		a => a.DisplayRequestDuration());
 }
 
 app.UseHttpsRedirection();

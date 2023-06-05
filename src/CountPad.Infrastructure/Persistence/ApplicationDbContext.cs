@@ -17,7 +17,6 @@ namespace CountPad.Infrastructure.Persistence
 {
 	public class ApplicationDbContext : DbContext, IApplicationDbContext
 	{
-		private readonly DbContextOptions<ApplicationDbContext> _options;
 		private readonly AuditableEntitySaveChangesInterceptor _interceptor;
 
 		public ApplicationDbContext(
@@ -25,7 +24,6 @@ namespace CountPad.Infrastructure.Persistence
 			AuditableEntitySaveChangesInterceptor interceptor)
 			: base(options)
 		{
-			_options = options;
 			_interceptor = interceptor;
 		}
 
@@ -60,22 +58,6 @@ namespace CountPad.Infrastructure.Persistence
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			optionsBuilder.AddInterceptors(_interceptor);
-		}
-
-		public IQueryable<T> GetByIds<T>(IEnumerable<Guid> ids) where T : class
-		{
-			var entities = new List<T>();
-
-			using (var context = new ApplicationDbContext(_options, _interceptor))
-			{
-				foreach (var id in ids)
-				{
-					entities.Add(context.Find<T>(
-						new object[] { id }));
-				}
-			}
-
-			return entities.AsQueryable();
 		}
 	}
 }

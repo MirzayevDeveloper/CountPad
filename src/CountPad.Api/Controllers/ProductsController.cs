@@ -7,13 +7,24 @@ using CountPad.Application.UseCases.Products.Models;
 using CountPad.Application.UseCases.Products.Queries.GetProducts;
 using CountPad.Application.UseCases.Products.Queries.GetProductsWithFilters;
 using CountPad.Application.UseCases.Products.Queries.GetProductsWithPagination;
+using LazyCache;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace CountPad.Api.Controllers
 {
 	public class ProductsController : ApiControllerBase
 	{
+		private readonly IAppCache _cache;
+		private const string My_First_Key = "First";
+		private const string My_Second_Key = "Second";
+
+		public ProductsController(IAppCache cache)
+		{
+			_cache = cache;
+		}
+
 		[HttpPost, Authorize(Roles = "createproduct"), LogEndpoint, AllowAnonymous]
 		public async ValueTask<ActionResult<ProductDto>> PostProductAsync(CreateProductCommand command)
 		{
@@ -34,16 +45,24 @@ namespace CountPad.Api.Controllers
 			return await Mediator.Send(new GetProductsQuery());
 		}*/
 
-		[HttpGet, Authorize(Roles = "getproductswithpagination")]
+		[HttpGet, Authorize(Roles = "getproductswithpagination"), AllowAnonymous]
 		public async ValueTask<ActionResult<PaginatedList<ProductDto>>> GetProductsWithPaginated([FromQuery] GetProductsWithPaginationQuery query)
 		{
-			return await Mediator.Send(query);
+			return await _cache.GetOrAddAsync(My_First_Key, x =>
+			{
+				x.SetAbsoluteExpiration(TimeSpan.FromMinutes(10));
+				return Mediator.Send(query);
+			});
 		}
 
 		[HttpGet("Filter"), Authorize(Roles = "getproductswithfilter"), AllowAnonymous]
 		public async ValueTask<ActionResult<PaginatedList<ProductDto>>> GetProductsWithFilter([FromQuery] GetProductsWithFilterQuery query)
 		{
-			return await Mediator.Send(query);
+			return await _cache.GetOrAddAsync(My_Second_Key, x =>
+			{
+				x.SetAbsoluteExpiration(TimeSpan.FromMinutes(20));
+				return Mediator.Send(query);
+			});
 		}
 
 		[HttpPut, Authorize(Roles = "updateproduct")]
