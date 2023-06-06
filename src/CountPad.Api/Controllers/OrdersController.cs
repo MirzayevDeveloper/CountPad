@@ -25,13 +25,13 @@ namespace CountPad.Api.Controllers
 			return await Mediator.Send(new GetOrderQuery(orderId));
 		}
 
-		[HttpGet, Authorize(Roles = "getallorders")]
+		[HttpGet, Authorize(Roles = "getallorders"), ResponseCache(Duration = 30)]
 		public async ValueTask<ActionResult<OrderDto[]>> GetOrdersAsync()
 		{
 			return await Mediator.Send(new GetOrdersQuery());
 		}
 
-		[HttpGet("pagination"), Authorize(Roles = "getOrderswithpagination"), OutputCache(Duration = 30)]
+		[HttpGet("pagination"), Authorize(Roles = "getorderswithpagination"), OutputCache(Duration = 30)]
 		public async ValueTask<ActionResult<PaginatedList<OrderDto>>> GetOrdersWithPaginated([FromQuery] GetOrdersWithPaginationQuery query)
 		{
 			return await Mediator.Send(query);

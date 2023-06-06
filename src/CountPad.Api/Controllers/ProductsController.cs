@@ -28,7 +28,7 @@ namespace CountPad.Api.Controllers
             return await Mediator.Send(new GetProductQuery(productId));
         }
 
-        [HttpGet, Authorize(Roles = "getproductswithpagination"), AllowAnonymous, Cache(10, 30)]
+        [HttpGet, Authorize(Roles = "getproductswithpagination"), AllowAnonymous, RedisCache(10, 30)]
         public async ValueTask<ActionResult<PaginatedList<ProductDto>>> GetProductsWithPaginated([FromQuery] GetProductsWithPaginationQuery query)
         {
             return await Mediator.Send(query);

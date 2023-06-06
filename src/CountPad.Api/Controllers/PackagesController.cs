@@ -1,4 +1,5 @@
-﻿using CountPad.Application.Common.Models;
+﻿using CountPad.Api.Filters;
+using CountPad.Application.Common.Models;
 using CountPad.Application.UseCases.Packages.Commands.CreatePackage;
 using CountPad.Application.UseCases.Packages.Commands.DeletePackage;
 using CountPad.Application.UseCases.Packages.Commands.UpdatePackage;
@@ -24,13 +25,13 @@ namespace CountPad.Api.Controllers
 			return await Mediator.Send(new GetPackageQuery(packageId));
 		}
 
-		[HttpGet, Authorize(Roles = "getallpackages")]
+		[HttpGet, Authorize(Roles = "getallpackages"), RedisCache(10, 50)]
 		public async ValueTask<ActionResult<PackageDto[]>> GetPackagesAsync()
 		{
 			return await Mediator.Send(new GetPackagesQuery());
 		}
 
-		[HttpGet("pagination"), Authorize(Roles = "getpackageswithpagination")]
+		[HttpGet("pagination"), Authorize(Roles = "getpackageswithpagination"), RedisCache(10, 50)]
 		public async ValueTask<ActionResult<PaginatedList<PackageDto>>> GetPackagesWithPaginated([FromQuery] GetPackagesWithPaginationQuery query)
 		{
 			return await Mediator.Send(query);

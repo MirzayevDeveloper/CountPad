@@ -20,6 +20,11 @@ builder.Services.AddInfrastructureService(builder.Configuration);
 // CACHE Service start
 builder.Services.AddLazyCache();
 builder.Services.AddOutputCache();
+builder.Services.AddResponseCaching();
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+	options.Configuration = builder.Configuration.GetConnectionString("RedisDb");
+});
 // CACHE Service end
 
 builder.Services.AddSwaggerGen(options =>
@@ -65,6 +70,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.UseOutputCache();
+app.UseResponseCaching();
 
 app.MapControllers();
 
